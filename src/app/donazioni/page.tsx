@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
+import CopyButton from "@/components/CopyButton";
 
 export default function DonazioniPage() {
     return (
@@ -19,11 +20,13 @@ export default function DonazioniPage() {
                             dichiarazione dei redditi.
                             Un gesto semplice che per noi significa molto.
                         </p>
-                        <div className="bg-primary/5 rounded-2xl p-6 border border-primary/10">
+                        <div className="bg-secondary/5 rounded-2xl p-6 border border-secondary/10">
                             <p className="text-sm uppercase tracking-widest text-secondary font-bold mb-2">Codice
                                 Fiscale</p>
-                            {/*todo: add copy to clipboard feature*/}
-                            <p className="text-3xl font-mono font-bold tracking-tighter text-primary">91010620358</p>
+                            <p className="text-3xl font-mono font-bold tracking-tighter text-secondary flex justify-between">
+                                <span>91010620358</span>
+                                <CopyButton text="91010620358" className="mt-4 text-secondary hover:text-secondary/80"/>
+                            </p>
                         </div>
                         <p className="mt-6 text-sm text-neutral-500">
                             Basta firmare nel riquadro &quot;Sostegno degli Enti del Terzo Settore&quot; e inserire il
@@ -42,8 +45,11 @@ export default function DonazioniPage() {
                             <div
                                 className="p-4 bg-neutral-50 rounded-2xl border border-neutral-100">
                                 <p className="text-xs font-bold text-neutral-400 uppercase">IBAN</p>
-                                <p className="text-lg font-mono font-bold text-neutral-900">IT90 D 05034
-                                    66420 000000 023254</p>
+                                <p className="text-lg font-mono font-bold text-primary flex justify-between">
+                                    <span>IT90 D 05034 66420 000000023254</span>
+                                    <CopyButton text="IT90D050346642000000023254"
+                                                className="mt-2 text-primary hover:text-primary/80 text-xs"/>
+                                </p>
                                 <p className="text-xs font-mono font-bold text-neutral-900"> presso
                                     BANCO BPM di PUIANELLO</p>
                             </div>

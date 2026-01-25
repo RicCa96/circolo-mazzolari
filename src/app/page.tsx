@@ -1,6 +1,6 @@
 import Container from "@/components/Container";
-import SectionTitle from "@/components/SectionTitle";
 import Link from "next/link";
+import Image from "next/image";
 
 const eventi = [
     {
@@ -20,39 +20,6 @@ const eventi = [
     },
 ];
 
-const nostri_valori = [
-    {
-        title: "Inclusione",
-        text: "Tutti sono benvenuti nel nostro circolo, senza distinzioni. Crediamo nella valorizzazione di ogni persona.",
-        icon: "🤝",
-    },
-    {
-        title: "Educazione",
-        text: "Lo sport non è solo competizione, ma uno strumento educativo per sviluppare disciplina e spirito di squadra.",
-        icon: "⚽",
-    },
-    {
-        title: "Socialità",
-        text: "Creare legami, costruire amicizie e rafforzare la comunità sono al centro della nostra missione quotidiana.",
-        icon: "🎉",
-    },
-    {
-        title: "Rispetto",
-        text: "Promuoviamo relazioni basate sull'ascolto, sulla comprensione e sulla valorizzazione reciproca.",
-        icon: "💙",
-    },
-    {
-        title: "Comunità",
-        text: "Siamo parte attiva del territorio di Vezzano sul Crostolo, contribuendo al bene comune.",
-        icon: "🏘️",
-    },
-    {
-        title: "Solidarietà",
-        text: "Perseguiamo finalità civiche e solidaristiche come Ente del Terzo Settore.",
-        icon: "🌟",
-    }
-];
-
 export default function HomePage() {
     return (
         <>
@@ -60,10 +27,11 @@ export default function HomePage() {
                 <Container>
                     <div className="grid items-center gap-10 md:grid-cols-2">
                         <div>
-                            <div
-                                className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary">
-                                Vezzano sul Crostolo (RE) • Comunità • Volontariato
-                            </div>
+                            {/*<div*/}
+                            {/*    className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary">*/}
+                            {/*    Vezzano sul Crostolo (RE) • Comunità • Volontariato*/}
+                            {/*</div>*/}
+                            <Image src="./anspi.svg" alt="Logo ANSPI" width={200} height={70} className="mr-2" priority={true}/>
 
                             <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-neutral-900 md:text-6xl leading-[1.1]">
                                 Benvenuti al Circolo ANSPI Don Primo Mazzolari
@@ -119,27 +87,6 @@ export default function HomePage() {
                                     href="mailto:vezzano@anspi.re.it">vezzano@anspi.re.it</a></p>
                             </div>
                         </div>
-                    </div>
-                </Container>
-            </section>
-
-            <section className="py-14">
-                <Container>
-                    <SectionTitle
-                        kicker="I nostri valori"
-                        title="Crescere insieme attraverso lo sport, la cultura e l'amicizia."
-                        subtitle="Operiamo secondo i valori cristiani di solidarietà, accoglienza e formazione integrale della persona."
-                    />
-
-                    <div className="mt-10 grid gap-6 md:grid-cols-3">
-                        {nostri_valori.map((c) => (
-                            <div key={c.title}
-                                 className="rounded-3xl border border-neutral-800/5 bg-neutral-400/5 p-8 shadow-sm hover:shadow-md hover:scale-[1.02] hover:bg-white hover:border-secondary/50 transition-all">
-                                <div className="text-3xl mb-4">{c.icon}</div>
-                                <div className="text-xl font-bold text-primary">{c.title}</div>
-                                <p className="mt-4 text-neutral-400 leading-relaxed">{c.text}</p>
-                            </div>
-                        ))}
                     </div>
                 </Container>
             </section>

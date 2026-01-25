@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
+import Link from "next/link";
 
 export default function TrasparenzaPage() {
     return (
@@ -17,12 +18,15 @@ export default function TrasparenzaPage() {
                             title: "Statuto",
                             description: "Lo statuto dell'associazione che definisce finalità, organizzazione e modalità di adesione.",
                             button: "Scarica Statuto",
+                            href: "/statuto.pdf",
+                            download: true,
                             icon: "📄"
                         },
                         {
                             title: "Come Associarsi",
                             description: "Informazioni su come diventare socio, modalità di adesione e quota associativa.",
                             button: "Info Associazione",
+                            href: "/contatti", // fixme: open dialog woth instructions for affiliation (WIP`)
                             icon: "🤝"
                         }
                     ].map((item, i) => (
@@ -30,9 +34,13 @@ export default function TrasparenzaPage() {
                             <div className="text-3xl mb-4">{item.icon}</div>
                             <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
                             <p className="text-sm text-neutral-600 mb-6 flex-grow">{item.description}</p>
-                            <button className="rounded-full bg-primary/10 px-4 py-2 text-xs font-bold text-primary hover:bg-primary/20 transition-colors">
+                            <Link
+                                href={item.href}
+                                download={item.download}
+                                className="inline-block text-center rounded-full bg-primary/10 px-4 py-2 text-xs font-bold text-primary hover:bg-primary/20 transition-colors"
+                            >
                                 {item.button}
-                            </button>
+                            </Link>
                         </div>
                     ))}
                 </div>
