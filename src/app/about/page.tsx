@@ -4,63 +4,112 @@ import Link from "next/link";
 
 export default function AboutPage() {
     return (
-        <section className="py-14">
-            <Container>
-                <SectionTitle
-                    kicker="Chi siamo"
-                    title="Circolo ANSPI Don Primo Mazzolari"
-                    subtitle="Un’associazione legata alla comunità parrocchiale di Vezzano sul Crostolo, impegnata da anni nella promozione sociale, educativa e ricreativa."
-                />
+        <>
+            <section className="py-14 border-b">
+                <Container>
+                    <SectionTitle
+                        kicker="Chi siamo"
+                        title="Circolo ANSPI Don Primo Mazzolari"
+                        subtitle="Un'Associazione di Promozione Sociale (APS) iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS) come Ente del Terzo Settore (ETS)."
+                    />
 
-                <div className="mt-10 grid gap-6 md:grid-cols-2">
-                    <div className="rounded-3xl bg-neutral-900 p-8 text-white shadow-xl transition-transform hover:scale-[1.02] dark:bg-neutral-800">
-                        <div className="text-lg font-bold text-secondary">La nostra missione</div>
-                        <p className="mt-4 text-neutral-100 leading-relaxed">
-                            Creare occasioni di incontro e partecipazione, con iniziative per ragazzi, famiglie e
-                            cittadini.
-                            Lavoriamo in rete con la Parrocchia e con altre realtà del territorio.
+                    <div className="mt-10 max-w-3xl mx-auto text-center">
+                        <p className="text-lg text-neutral-600 leading-relaxed">
+                            Siamo un punto di riferimento per la comunità di Vezzano sul Crostolo, dove bambini, ragazzi e famiglie
+                            possono incontrarsi, crescere e condividere momenti di gioia. Affiliati all&apos;ANSPI
+                            (Associazione Nazionale San Paolo Italia), operiamo secondo i valori cristiani di solidarietà,
+                            accoglienza e formazione integrale della persona.
                         </p>
                     </div>
+                </Container>
+            </section>
 
-                    <div className="rounded-3xl bg-neutral-900 p-8 text-white shadow-xl transition-transform hover:scale-[1.02] dark:bg-neutral-800">
-                        <div className="text-lg font-bold text-secondary">Cosa facciamo</div>
-                        <ul className="mt-4 space-y-3 text-neutral-100">
-                            {[
-                                "Campeggi estivi (e invernali) a Vaglie",
-                                "Sagra della Madonna della Neve",
-                                "Attività sportive (volley)",
-                                "Progetti educativi e supporto allo studio (prescuola)"
-                            ].map(item => (
-                                <li key={item} className="flex gap-3 items-start">
-                                    <span className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-secondary" />
-                                    <span>{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+            <section className="py-14 bg-neutral-50 dark:bg-neutral-900/50 border-b">
+                <Container>
+                    <div className="grid gap-12 md:grid-cols-2 items-start">
+                        <div>
+                            <h2 className="text-3xl font-bold text-primary mb-6">La Nostra Storia</h2>
+                            <div className="space-y-6 text-neutral-600 leading-relaxed">
+                                <div>
+                                    <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Le Origini</h3>
+                                    <p>
+                                        Il Circolo ANSPI Don Primo Mazzolari nasce a Vezzano sul Crostolo con l&apos;obiettivo di creare
+                                        uno spazio di aggregazione, crescita e formazione per bambini, ragazzi e famiglie del territorio.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Crescita e Sviluppo</h3>
+                                    <p>
+                                        Nel corso degli anni, il circolo si è evoluto e arricchito di nuove attività e iniziative,
+                                        diventando un punto di riferimento importante per la comunità locale.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">L&apos;Affiliazione ANSPI</h3>
+                                    <p>
+                                        L&apos;affiliazione all&apos;ANSPI rappresenta per noi l&apos;adesione a una rete nazionale di oratori
+                                        e circoli che condividono gli stessi valori di educazione cristiana, sport e aggregazione sociale.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                <div className="mt-12 rounded-3xl bg-primary p-8 text-white shadow-xl dark:bg-primary/90">
-                    <div className="text-xl font-bold">Vuoi unirti o darci una mano?</div>
-                    <p className="mt-3 text-blue-50 text-lg">
-                        Siamo sempre felici di accogliere nuovi volontari e collaborazioni.
-                    </p>
-                    <div className="mt-6 flex flex-wrap gap-4">
-                        <Link
-                            href="/attivita"
-                            className="rounded-full bg-white px-6 py-3 text-sm font-bold text-primary hover:bg-neutral-100 transition-colors"
-                        >
-                            Vai alle attività
-                        </Link>
-                        <a
-                            href="#"
-                            className="rounded-full border-2 border-white/30 px-6 py-3 text-sm font-bold text-white hover:bg-white/10 transition-colors"
-                        >
-                            Contattaci
-                        </a>
+                        <div className="rounded-3xl bg-white p-8 shadow-xl border border-neutral-100 dark:bg-neutral-800 dark:border-neutral-700">
+                            <div className="text-center mb-6">
+                                <p className="italic text-neutral-500 text-lg">
+                                    &quot;La carità è dare tutto, perdonare tutto, soffrire tutto&quot;
+                                </p>
+                                <p className="font-bold text-primary mt-2">Don Primo Mazzolari</p>
+                            </div>
+
+                            <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mb-4">Don Primo Mazzolari</h2>
+                            <div className="space-y-4 text-sm text-neutral-600 leading-relaxed">
+                                <p>
+                                    <strong>La Vita:</strong> Don Primo Mazzolari (1890-1959) è stato un sacerdote cattolico italiano, scrittore e parroco
+                                    di Bozzolo (Mantova). Figura profetica della Chiesa italiana del Novecento.
+                                </p>
+                                <p>
+                                    <strong>Il Parroco degli Ultimi:</strong> Dedicò la sua vita ai poveri, agli emarginati e a tutti coloro che la società
+                                    tendeva ad escludere. La sua parrocchia divenne un luogo di accoglienza per tutti.
+                                </p>
+                                <p>
+                                    <strong>Testimone di Pace:</strong> Significativo fu il suo impegno per la pace e la non violenza,
+                                    espresso magistralmente nell&apos;opera &quot;Tu non uccidere&quot; (1955).
+                                </p>
+                                <p>
+                                    <strong>Perché a Lui:</strong> Il nostro circolo porta il suo nome perché vogliamo ispirarci ai suoi
+                                    valori di accoglienza, solidarietà e attenzione agli ultimi.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </Container>
-        </section>
+                </Container>
+            </section>
+
+            <section className="py-14">
+                <Container>
+                    <div className="rounded-3xl bg-primary p-8 text-white shadow-xl dark:bg-primary/90">
+                        <div className="text-xl font-bold">Vuoi unirti o darci una mano?</div>
+                        <p className="mt-3 text-blue-50 text-lg">
+                            Siamo sempre felici di accogliere nuovi volontari e collaborazioni.
+                        </p>
+                        <div className="mt-6 flex flex-wrap gap-4">
+                            <Link
+                                href="/attivita"
+                                className="rounded-full bg-white px-6 py-3 text-sm font-bold text-primary hover:bg-neutral-100 transition-colors"
+                            >
+                                Vai alle attività
+                            </Link>
+                            <Link
+                                href="/contatti"
+                                className="rounded-full border-2 border-white/30 px-6 py-3 text-sm font-bold text-white hover:bg-white/10 transition-colors"
+                            >
+                                Contattaci
+                            </Link>
+                        </div>
+                    </div>
+                </Container>
+            </section>
+        </>
     );
 }

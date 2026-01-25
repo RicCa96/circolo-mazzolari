@@ -64,7 +64,7 @@ export default function AttivitaPage() {
                     <div className="text-xl font-bold">Info e iscrizioni</div>
                     <p className="mt-3 text-blue-50 text-lg">
                         Vuoi partecipare ai campeggi o dare una mano per la Sagra? Scrivici:
-                        <span className="font-bold text-white"> contatti da inserire</span>.
+                        <span className="font-bold text-white"> vezzano@anspi.re.it</span>.
                     </p>
                 </div>
             </Container>

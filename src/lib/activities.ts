@@ -35,19 +35,35 @@ export const mainActivities: Activity[] = [
 
 export const otherActivities: Activity[] = [
   {
-    slug: "volley",
-    title: "Attività sportiva (Volley)",
+    slug: "sport",
+    title: "Attività Sportive",
     tag: "Sport",
     description:
-        "Squadre e allenamenti nella palestra di Vezzano, con partecipazione ai campionati CSI.",
-    highlights: ["Settore giovanile e squadre Open", "Allenamenti regolari", "Campionati CSI"],
+        "Calcetto, pallavolo (Volley CSI), basket e tornei per tutte le età. Lo sport come strumento di crescita e socializzazione.",
+    highlights: ["Calcetto e Basket", "Volley (squadre giovanili e Open)", "Tornei stagionali"],
   },
   {
     slug: "prescuola",
-    title: "Prescuola",
+    title: "Prescuola e Supporto Studio",
     tag: "Scuola • Supporto",
     description:
-        "Percorso di studio e gioco nelle settimane prima dell’inizio dell’anno scolastico, con volontari e animatori.",
+        "Supporto allo studio e aiuto compiti per bambini e ragazzi, in un ambiente sereno e stimolante.",
     highlights: ["Compiti delle vacanze", "Momenti di gioco", "Supporto di volontari"],
+  },
+  {
+    slug: "animazione",
+    title: "Animazione e Socialità",
+    tag: "Festa • Eventi",
+    description:
+        "Feste, gite (Parco Avventura), campi estivi e attività ricreative per vivere momenti indimenticabili insieme.",
+    highlights: ["Festa di Carnevale", "Gite comunitarie", "Eventi per famiglie"],
+  },
+  {
+    slug: "formazione",
+    title: "Formazione e Spiritualità",
+    tag: "Valori",
+    description:
+        "Catechesi, momenti di preghiera e incontri formativi per crescere nella fede e nei valori cristiani.",
+    highlights: ["Incontri formativi", "Momenti di preghiera", "Percorsi di fede"],
   },
 ];

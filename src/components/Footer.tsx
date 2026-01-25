@@ -6,27 +6,32 @@ export default function Footer() {
             <Container>
                 <div className="grid gap-6 md:grid-cols-3">
                     <div>
-                        <div className="font-bold text-primary">Circolo ANSPI Mazzolari</div>
+                        <div className="font-bold text-primary text-lg">Circolo ANSPI Mazzolari</div>
                         <p className="mt-2 text-sm text-neutral-900 dark:text-neutral-100">
-                            Vezzano sul Crostolo (RE). Iniziative sociali, educative e ricreative a servizio della
-                            comunità.
+                            Associazione sportiva dilettantistica APS ETS<br/>
+                            Vezzano sul Crostolo (RE).<br/>
+                            Affiliato ANSPI (Associazione Nazionale San Paolo Italia)<br/>
+                            Ente del Terzo Settore iscritto al RUNTS
                         </p>
                     </div>
 
                     <div>
                         <div className="font-bold text-neutral-900 dark:text-white">Contatti</div>
                         <p className="mt-2 text-sm text-neutral-900 dark:text-neutral-100">
-                            Email / telefono: <span className="text-neutral-900 dark:text-neutral-100">da inserire</span>
-                            <br/>
-                            Sede: <span className="text-neutral-900 dark:text-neutral-100">da inserire</span>
+                            Email: vezzano@anspi.re.it<br/>
+                            PEC: mazzolari.03184@anspipec.it<br/>
+                            Sede: Via XI Febbraio, 2 - 42030 Vezzano sul Crostolo (RE)
                         </p>
                     </div>
 
                     <div>
-                        <div className="font-bold text-neutral-900 dark:text-white">Social</div>
-                        <p className="mt-2 text-sm text-neutral-900 dark:text-neutral-100">
-                            Link Facebook/Instagram: <span className="text-neutral-900 dark:text-neutral-100">da inserire</span>
-                        </p>
+                        <div className="font-bold text-neutral-900 dark:text-white">Seguici</div>
+                        <div className="mt-2 flex flex-col gap-1 text-sm text-neutral-900 dark:text-neutral-100">
+                            <a href="#" className="hover:text-primary transition-colors">Facebook</a>
+                            <a href="#" className="hover:text-primary transition-colors">Instagram</a>
+                            <a href="#" className="hover:text-primary transition-colors">YouTube</a>
+                            <a href="#" className="hover:text-primary transition-colors">WhatsApp</a>
+                        </div>
                     </div>
                 </div>
 
