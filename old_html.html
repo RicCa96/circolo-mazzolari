@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circolo ANSPI Don Primo Mazzolari - ASD APS ETS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* ========== SEZIONE EVENTI - MODIFICA QUI ========== */
+        /* Per aggiungere, modificare o rimuovere eventi, cerca la sezione HTML
+           con id="eventi" più in basso nel codice */
+        /* ================================================== */
+
+        header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #4a7dc5 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            background: #1e4380;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #2c5aa0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .hero .logo-container {
+            margin-bottom: 2rem;
+        }
+
+        .hero .logo-container img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .hero .circolo-name {
+            color: #1b75bc;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        h2 {
+            color: #2c5aa0;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            background: white;
+            padding: 1.5rem;
+            border-left: 4px solid #2c5aa0;
+            border-radius: 5px;
+        }
+
+        .info-item strong {
+            color: #2c5aa0;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            background: #e55a28;
+        }
+
+        footer {
+            background: #1e4380;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .eventi-lista {
+            margin-top: 2rem;
+        }
+
+        .evento {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 5px solid #ff6b35;
+        }
+
+        .evento h4 {
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
+        }
+
+        .evento .data {
+            color: #ff6b35;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: white;
+            color: #1b75bc;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .social-link.facebook {
+            background: #1877f2;
+            color: white;
+        }
+
+        .social-link.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+
+        .social-link.youtube {
+            background: #ff0000;
+            color: white;
+        }
+
+        .social-link.whatsapp {
+            background: #25d366;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+           
+            nav ul {
+                flex-direction: column;
+            }
+           
+            nav a {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container hero">
+            <div class="logo-container">
+                <img src="https://www.anspi.it/wp-content/uploads/2019/01/logo-anspi.png" alt="Logo ANSPI">
+                <div class="circolo-name">Circolo Don Primo Mazzolari APS ETS</div>
+            </div>
+            <h1>Benvenuti al Circolo ANSPI Don Primo Mazzolari</h1>
+            <p style="font-size: 1rem; margin-top: 0.5rem;">Crescere insieme attraverso lo sport, la cultura e l'amicizia</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#chi-siamo">Chi Siamo</a></li>
+            <li><a href="#storia">La Nostra Storia</a></li>
+            <li><a href="#don-mazzolari">Don Primo Mazzolari</a></li>
+            <li><a href="#attivita">Attività</a></li>
+            <li><a href="#eventi">Eventi</a></li>
+            <li><a href="#donazioni">Donazioni e 5x1000</a></li>
+            <li><a href="#trasparenza">Trasparenza</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <section id="chi-siamo">
+        <div class="container">
+            <h2>Chi Siamo</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.1rem;">
+                Il nostro Circolo ANSPI è un'Associazione di Promozione Sociale (APS) iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS) come Ente del Terzo Settore (ETS). Siamo un punto di riferimento per la comunità, dove bambini, ragazzi e famiglie
+                possono incontrarsi, crescere e condividere momenti di gioia. Affiliati all'ANSPI
+                (Associazione Nazionale San Paolo Italia), operiamo secondo i valori cristiani di solidarietà,
+                accoglienza e formazione integrale della persona, perseguendo finalità civiche, solidaristiche e di utilità sociale.
+            </p>
+           
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h3 style="color: #1b75bc; margin-bottom: 1.5rem; font-size: 1.8rem; text-align: center;">I Nostri Valori</h3>
+                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.05rem;">
+                    La nostra attività si fonda su valori fondamentali:
+                </p>
+               
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div style="display: flex; align-items: start;">
+                        <span style="font-size: 2rem; margin-right: 1rem;">🤝</span>
+                        <div>
+                            <h4 style="color: #1b75bc; margin-bottom: 0.5rem;">Inclusione e Partecipazione</h4>
+                            <p style="margin: 0;">Tutti sono benvenuti nel nostro circolo, senza distinzioni. Crediamo nella valorizzazione di ogni persona e nel coinvolgimento attivo di tutti.</p>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div style="display: flex; align-items: start;">
+                        <span style="font-size: 2rem; margin-right: 1rem;">⚽</span>
+                        <div>
+                            <h4 style="color: #1b75bc; margin-bottom: 0.5rem;">Educazione attraverso lo Sport</h4>
+                            <p style="margin: 0;">Lo sport non è solo competizione, ma uno strumento educativo per sviluppare disciplina, spirito di squadra e crescita personale.</p>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div style="display: flex; align-items: start;">
+                        <span style="font-size: 2rem; margin-right: 1rem;">💙</span>
+                        <div>
+                            <h4 style="color: #1b75bc; margin-bottom: 0.5rem;">Rispetto delle Persone</h4>
+                            <p style="margin: 0;">Ogni individuo merita dignità e rispetto. Promuoviamo relazioni basate sull'ascolto, sulla comprensione e sulla valorizzazione reciproca.</p>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div style="display: flex; align-items: start;">
+                        <span style="font-size: 2rem; margin-right: 1rem;">🎉</span>
+                        <div>
+                            <h4 style="color: #1b75bc; margin-bottom: 0.5rem;">Aggregazione e Socialità</h4>
+                            <p style="margin: 0;">Creare legami, costruire amicizie e rafforzare la comunità sono al centro della nostra missione quotidiana.</p>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="card">
+                    <div style="display: flex; align-items: start;">
+                        <span style="font-size: 2rem; margin-right: 1rem;">🏘️</span>
+                        <div>
+                            <h4 style="color: #1b75bc; margin-bottom: 0.5rem;">Impegno nella Comunità</h4>
+                            <p style="margin: 0;">Siamo parte attiva del territorio di Vezzano sul Crostolo, contribuendo al bene comune e alla crescita sociale della nostra comunità.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SEZIONE STORIA DEL CIRCOLO - MODIFICA QUI ========== -->
+    <section id="storia">
+        <div class="container">
+            <h2>La Nostra Storia</h2>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="background: white; padding: 2.5rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 5px solid #1b75bc;">
+                   
+                    <h3 style="color: #1b75bc; margin-bottom: 1.5rem; font-size: 1.5rem;">Le Origini</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
+                        Il Circolo ANSPI Don Primo Mazzolari nasce a Vezzano sul Crostolo con l'obiettivo di creare
+                        uno spazio di aggregazione, crescita e formazione per bambini, ragazzi e famiglie del territorio.
+                        [Inserire qui l'anno di fondazione e le circostanze che hanno portato alla nascita del circolo]
+                    </p>
+                   
+                    <h3 style="color: #1b75bc; margin-bottom: 1.5rem; margin-top: 2rem; font-size: 1.5rem;">Crescita e Sviluppo</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
+                        Nel corso degli anni, il circolo si è evoluto e arricchito di nuove attività e iniziative,
+                        diventando un punto di riferimento importante per la comunità di Vezzano sul Crostolo.
+                        [Inserire qui i momenti significativi, le tappe importanti, i progetti realizzati]
+                    </p>
+                   
+                    <h3 style="color: #1b75bc; margin-bottom: 1.5rem; margin-top: 2rem; font-size: 1.5rem;">L'Affiliazione ANSPI</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
+                        L'affiliazione all'ANSPI (Associazione Nazionale San Paolo Italia) rappresenta per noi
+                        l'adesione a una rete nazionale di oratori e circoli che condividono gli stessi valori
+                        di educazione cristiana, sport e aggregazione sociale. [Inserire qui quando è avvenuta
+                        l'affiliazione e cosa ha significato per il circolo]
+                    </p>
+                   
+                    <h3 style="color: #1b75bc; margin-bottom: 1.5rem; margin-top: 2rem; font-size: 1.5rem;">Oggi</h3>
+                    <p style="margin-bottom: 0; font-size: 1.05rem; line-height: 1.8;">
+                        Oggi il Circolo Don Primo Mazzolari è un'Associazione di Promozione Sociale (APS) iscritta
+                        al RUNTS come Ente del Terzo Settore (ETS), che continua a operare con passione e dedizione
+                        per offrire opportunità di crescita, sport, cultura e spiritualità a tutta la comunità.
+                        [Inserire qui le attività attuali, i numeri del circolo, i progetti in corso]
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========== FINE SEZIONE STORIA ========== -->
+
+    <!-- ========== SEZIONE DON PRIMO MAZZOLARI - MODIFICA QUI ========== -->
+    <section id="don-mazzolari">
+        <div class="container">
+            <h2>Don Primo Mazzolari</h2>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="background: white; padding: 2.5rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 5px solid #006738;">
+                   
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <p style="font-style: italic; color: #666; font-size: 1.1rem;">
+                            "La carità è dare tutto, perdonare tutto, soffrire tutto"
+                        </p>
+                        <p style="color: #1b75bc; font-weight: bold; margin-top: 0.5rem;">Don Primo Mazzolari</p>
+                    </div>
+                   
+                    <h3 style="color: #006738; margin-bottom: 1.5rem; font-size: 1.5rem;">La Vita</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
+                        Don Primo Mazzolari (1890-1959) è stato un sacerdote cattolico italiano, scrittore e parroco
+                        di Bozzolo (Mantova). Figura profetica della Chiesa italiana del Novecento, è stato definito
+                        da Papa Giovanni XXIII "la tromba dello Spirito Santo in terra mantovana".
+                    </p>
+                   
+                    <h3 style="color: #006738; margin-bottom: 1.5rem; margin-top: 2rem; font-size: 1.5rem;">Il Parroco degli Ultimi</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
+                        Don Mazzolari dedicò la sua vita ai poveri, agli emarginati e a tutti coloro che la società
+                        tendeva ad escludere. La sua parrocchia di Bozzolo divenne un luogo di accoglienza per tutti,
+                        senza distinzioni. Il suo impegno sociale e la sua predicazione coraggiosa lo resero una voce
+                        profetica anche nei momenti più difficili della storia italiana.
+                    </p>
+                   
+                    <h3 style="color: #006738; margin-bottom: 1.5rem; margin-top: 2rem; font-size: 1.5rem;">Un Testimone di Pace</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
+                        Particolarmente significativo fu il suo impegno per la pace. Durante e dopo la Seconda Guerra
+                        Mondiale, don Mazzolari si distinse per il suo messaggio di riconciliazione e fraternità.
+                        La sua opera "Tu non uccidere" (1955) rimane un testo fondamentale sul tema della non violenza
+                        e dell'obiezione di coscienza.
+                    </p>
+                   
+                    <h3 style="color: #006738; margin-bottom: 1.5rem; margin-top: 2rem; font-size: 1.5rem;">L'Eredità Spirituale</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
+                        Don Primo Mazzolari ha lasciato un'eredità spirituale e culturale immensa: oltre 50 libri,
+                        migliaia di articoli e una testimonianza di vita che continua a ispirare. I suoi scritti
+                        sulla parrocchia, sull'accoglienza, sulla carità e sulla pace sono ancora oggi di grande
+                        attualità.
+                    </p>
+                   
+                    <h3 style="color: #006738; margin-bottom: 1.5rem; margin-top: 2rem; font-size: 1.5rem;">Perché intitolare a Lui il nostro Circolo</h3>
+                    <p style="margin-bottom: 0; font-size: 1.05rem; line-height: 1.8;">
+                        Il nostro circolo porta il nome di don Primo Mazzolari perché vogliamo ispirarci ai suoi
+                        valori di accoglienza, solidarietà, attenzione agli ultimi e costruzione della pace.
+                        Come lui desiderava una Chiesa aperta a tutti, così noi vogliamo essere un circolo dove
+                        ogni persona, soprattutto i giovani, possa sentirsi accolta, valorizzata e accompagnata
+                        nella crescita umana e spirituale.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========== FINE SEZIONE DON MAZZOLARI ========== -->
+
+    <section id="attivita">
+        <div class="container">
+            <h2>Le Nostre Attività</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>⚽ Attività Sportive</h3>
+                    <p>Calcetto, pallavolo, basket e tornei per tutte le età. Lo sport come strumento di crescita e socializzazione.</p>
+                </div>
+                <div class="card">
+                    <h3>📚 Prescuola</h3>
+                    <p>Supporto allo studio e aiuto compiti per bambini e ragazzi, in un ambiente sereno e stimolante.</p>
+                </div>
+                <div class="card">
+                    <h3>🎪 Animazione</h3>
+                    <p>Feste, gite, campi estivi e attività ricreative per vivere momenti indimenticabili insieme.</p>
+                </div>
+                <div class="card">
+                    <h3>🙏 Formazione</h3>
+                    <p>Catechesi, momenti di preghiera e incontri formativi per crescere nella fede e nei valori.</p>
+                </div>
+                <div class="card">
+                    <h3>👨‍👩‍👧‍👦 Famiglia</h3>
+                    <p>Eventi e attività dedicate alle famiglie per rafforzare i legami e la comunità.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SEZIONE EVENTI - MODIFICA QUI ========== -->
+    <!-- Per aggiungere un nuovo evento, copia e incolla il blocco <div class="evento">...</div>
+         e modifica data, titolo e descrizione -->
+    <section id="eventi">
+        <div class="container">
+            <h2>Prossimi Eventi</h2>
+            <div class="eventi-lista">
+               
+                <!-- EVENTO 1 -->
+                <div class="evento">
+                    <div class="data">📅 Sabato 15 Febbraio 2026</div>
+                    <h4>Torneo di Calcetto Invernale</h4>
+                    <p>Grande torneo per ragazzi e adulti. Iscrizioni aperte fino al 10 febbraio!</p>
+                </div>
+               
+                <!-- EVENTO 2 -->
+                <div class="evento">
+                    <div class="data">📅 Domenica 23 Febbraio 2026</div>
+                    <h4>Festa di Carnevale</h4>
+                    <p>Pomeriggio in maschera con giochi, musica e merenda per tutti. Ingresso libero.</p>
+                </div>
+               
+                <!-- EVENTO 3 -->
+                <div class="evento">
+                    <div class="data">📅 Sabato 8 Marzo 2026</div>
+                    <h4>Gita al Parco Avventura</h4>
+                    <p>Giornata all'aria aperta per famiglie e ragazzi. Prenotazione obbligatoria.</p>
+                </div>
+               
+                <!-- Per aggiungere un nuovo evento, copia dal commento EVENTO 1
+                     fino alla chiusura </div> e incolla qui sotto, poi modifica i dati -->
+               
+            </div>
+        </div>
+    </section>
+    <!-- ========== FINE SEZIONE EVENTI ========== -->
+
+    <section id="contatti">
+        <div class="container">
+            <h2>Contatti e Informazioni</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>📍 Indirizzo</strong>
+                    Via XI Febbraio, 2<br>
+                    42030 Vezzano sul Crostolo (RE)
+                </div>
+                <div class="info-item">
+                    <strong>📧 Email</strong>
+                    vezzano@anspi.re.it
+                </div>
+                <div class="info-item">
+                    <strong>📨 PEC</strong>
+                    mazzolari.03184@anspipec.it
+                </div>
+            </div>
+           
+            <!-- ========== SOCIAL MEDIA - MODIFICA I LINK QUI ========== -->
+            <div style="margin-top: 3rem;">
+                <h3 style="text-align: center; color: #1b75bc; margin-bottom: 1.5rem; font-size: 1.5rem;">Seguici sui Social</h3>
+                <p style="text-align: center; margin-bottom: 1.5rem; color: #666;">
+                    Resta aggiornato sulle nostre attività ed eventi!
+                </p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/[INSERISCI-PAGINA-FACEBOOK]" target="_blank" class="social-link facebook">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        Facebook
+                    </a>
+                   
+                    <a href="https://www.instagram.com/[INSERISCI-PROFILO-INSTAGRAM]" target="_blank" class="social-link instagram">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        Instagram
+                    </a>
+                   
+                    <a href="https://www.youtube.com/@[INSERISCI-CANALE-YOUTUBE]" target="_blank" class="social-link youtube">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        YouTube
+                    </a>
+                   
+                    <a href="https://chat.whatsapp.com/[INSERISCI-LINK-GRUPPO-WHATSAPP]" target="_blank" class="social-link whatsapp">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+            <!-- ========== FINE SOCIAL MEDIA ========== -->
+           
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="cta-button">Diventa Socio</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="trasparenza">
+        <div class="container">
+            <h2>Trasparenza e Documentazione</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">
+                In conformità agli obblighi di trasparenza previsti dal Codice del Terzo Settore (D.Lgs. 117/2017)
+                per gli Enti del Terzo Settore, mettiamo a disposizione la documentazione ufficiale dell'associazione.
+            </p>
+            <div class="cards">
+                <div class="card">
+                    <h3>📄 Statuto</h3>
+                    <p>Lo statuto dell'associazione che definisce finalità, organizzazione e modalità di adesione.</p>
+                    <a href="#" class="cta-button" style="font-size: 0.9rem; padding: 0.7rem 1.5rem;">Scarica Statuto</a>
+                </div>
+                <div class="card">
+                    <h3>📊 Bilancio</h3>
+                    <p>Bilanci consuntivi e rendiconti delle attività svolte, per garantire massima trasparenza.</p>
+                    <a href="#" class="cta-button" style="font-size: 0.9rem; padding: 0.7rem 1.5rem;">Scarica Bilancio</a>
+                </div>
+                <div class="card">
+                    <h3>🏛️ Registro RUNTS</h3>
+                    <p>Iscrizione al Registro Unico Nazionale del Terzo Settore come APS.</p>
+                    <a href="#" class="cta-button" style="font-size: 0.9rem; padding: 0.7rem 1.5rem;">Verifica Iscrizione</a>
+                </div>
+                <div class="card">
+                    <h3>🤝 Come Associarsi</h3>
+                    <p>Informazioni su come diventare socio, modalità di adesione e quota associativa.</p>
+                    <a href="#" class="cta-button" style="font-size: 0.9rem; padding: 0.7rem 1.5rem;">Info Associazione</a>
+                </div>
+            </div>
+            <div style="background: white; padding: 2rem; border-radius: 10px; margin-top: 2rem; border-left: 5px solid #2c5aa0;">
+                <h3 style="color: #2c5aa0; margin-bottom: 1rem;">Finalità Non Lucrative</h3>
+                <p>Il Circolo ANSPI Don Primo Mazzolari è un'associazione senza scopo di lucro. Tutte le attività sono
+                svolte nel rispetto dei principi di democraticità, solidarietà e gratuità previsti dal Codice del Terzo Settore.
+                Gli utili e gli avanzi di gestione sono destinati esclusivamente allo svolgimento dell'attività statutaria
+                ai fini dell'esclusivo perseguimento di finalità civiche, solidaristiche e di utilità sociale.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>Circolo ANSPI Don Primo Mazzolari</strong></p>
+            <p>Associazione sportiva dilettantistica APS ETS</p>
+            <p style="margin-top: 0.5rem;">Affiliato ANSPI (Associazione Nazionale San Paolo Italia)</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Ente del Terzo Settore iscritto al RUNTS</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">&copy; 2026 - Crescere insieme nello sport, nella cultura e nella fede</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Via XI Febbraio, 2 - 42030 Vezzano sul Crostolo (RE)</p>
+            <p style="font-size: 0.85rem;">Email: vezzano@anspi.re.it | PEC: mazzolari.03184@anspipec.it</p>
+        </div>
+    </footer>
+</body>
+</html>
