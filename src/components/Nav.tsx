@@ -20,7 +20,7 @@ export default function Nav() {
                         <Image src="./logo.svg" alt="Logo ANSPI" width={100} height={35} className="mr-2" priority={true}/>
                         <div>
                             <p className="text-lg">Circolo Don Primo Mazzolari</p>
-                            <p className="text-[#006738] text-sm">Associazione Sportiva Dilettantistica APS ETS</p>
+                            <p className="text-[#006738]/80 text-sm">Associazione Sportiva Dilettantistica APS ETS</p>
                         </div>
                     </Link>
 

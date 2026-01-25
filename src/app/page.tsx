@@ -83,7 +83,7 @@ export default function HomePage() {
                                     Contattaci per dare una mano come volontario o per iscrivere i ragazzi alle
                                     attività.
                                 </p>
-                                <p className="mt-3 text-sm font-bold text-[#006738]">Email: <a
+                                <p className="mt-3 text-sm font-bold text-[#006738]/80">Email: <a
                                     href="mailto:vezzano@anspi.re.it">vezzano@anspi.re.it</a></p>
                             </div>
                         </div>
