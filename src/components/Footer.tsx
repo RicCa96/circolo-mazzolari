@@ -6,7 +6,7 @@ export default function Footer() {
             <Container>
                 <div className="grid gap-6 md:grid-cols-3">
                     <div>
-                        <div className="font-bold text-primary text-lg">Circolo ANSPI Mazzolari</div>
+                        <div className="font-bold text-primary text-lg">Circolo Don Primo Mazzolari</div>
                         <p className="mt-2 text-sm text-neutral-900 dark:text-neutral-100">
                             Associazione sportiva dilettantistica APS ETS<br/>
                             Vezzano sul Crostolo (RE).<br/>
@@ -24,15 +24,6 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    <div>
-                        <div className="font-bold text-neutral-900 dark:text-white">Seguici</div>
-                        <div className="mt-2 flex flex-col gap-1 text-sm text-neutral-900 dark:text-neutral-100">
-                            <a href="#" className="hover:text-primary transition-colors">Facebook</a>
-                            <a href="#" className="hover:text-primary transition-colors">Instagram</a>
-                            <a href="#" className="hover:text-primary transition-colors">YouTube</a>
-                            <a href="#" className="hover:text-primary transition-colors">WhatsApp</a>
-                        </div>
-                    </div>
                 </div>
 
                 <div className="mt-8 text-xs text-neutral-700 dark:text-neutral-400">
