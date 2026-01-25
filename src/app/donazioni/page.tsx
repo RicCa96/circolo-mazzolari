@@ -14,18 +14,18 @@ export default function DonazioniPage() {
 
                 <div className="mt-10 grid gap-8 md:grid-cols-2">
                     <div className="rounded-3xl bg-white p-8 text-neutral-900 shadow-xl border border-primary/10">
-                        <h3 className="text-2xl font-bold text-secondary mb-4">5x1000</h3>
+                        <h3 className="text-2xl font-bold text-[#006738] mb-4">5x1000</h3>
                         <p className="text-neutral-600 leading-relaxed mb-6">
                             Puoi sostenere il Circolo ANSPI Don Primo Mazzolari destinando il tuo 5x1000 nella
                             dichiarazione dei redditi.
                             Un gesto semplice che per noi significa molto.
                         </p>
-                        <div className="bg-secondary/5 rounded-2xl p-6 border border-secondary/10">
-                            <p className="text-sm uppercase tracking-widest text-secondary font-bold mb-2">Codice
+                        <div className="bg-[#006738]/5 rounded-2xl p-6 border border-[#006738]/10">
+                            <p className="text-sm uppercase tracking-widest text-[#006738] font-bold mb-2">Codice
                                 Fiscale</p>
-                            <p className="text-3xl font-mono font-bold tracking-tighter text-secondary flex justify-between">
+                            <p className="text-3xl font-mono font-bold tracking-tighter text-[#006738] flex justify-between">
                                 <span>91010620358</span>
-                                <CopyButton text="91010620358" className="mt-4 text-secondary hover:text-secondary/80"/>
+                                <CopyButton text="91010620358" className="mt-4 text-[#006738] hover:text-[#006738]/80"/>
                             </p>
                         </div>
                         <p className="mt-6 text-sm text-neutral-500">

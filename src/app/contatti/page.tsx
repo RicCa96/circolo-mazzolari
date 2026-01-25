@@ -35,10 +35,10 @@ export default function ContattiPage() {
                         <div className="text-2xl mb-4">📱</div>
                         <h3 className="text-xl font-bold text-primary mb-2">Social Media</h3>
                         <div className="flex flex-col gap-2">
-                            <a href="#" className="text-secondary hover:underline">Facebook</a>
-                            <a href="#" className="text-secondary hover:underline">Instagram</a>
-                            <a href="#" className="text-secondary hover:underline">YouTube</a>
-                            <a href="#" className="text-secondary hover:underline">WhatsApp</a>
+                            <a href="#" className="text-[#006738] hover:underline">Facebook</a>
+                            <a href="#" className="text-[#006738] hover:underline">Instagram</a>
+                            <a href="#" className="text-[#006738] hover:underline">YouTube</a>
+                            <a href="#" className="text-[#006738] hover:underline">WhatsApp</a>
                         </div>
                     </div>
                 </div>

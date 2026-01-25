@@ -17,10 +17,10 @@ export default function Nav() {
             <Container>
                 <div className="flex h-16 items-center justify-between">
                     <Link href="/" className="font-bold tracking-tight text-primary flex items-center">
-                        <Image src="./logo.svg" alt="Logo ANSPI" width={100} height={350} className="mr-2" priority={true}/>
+                        <Image src="./logo.svg" alt="Logo ANSPI" width={100} height={35} className="mr-2" priority={true}/>
                         <div>
                             <p className="text-lg">Circolo Don Primo Mazzolari</p>
-                            <p className="text-secondary text-sm">Associazione Sportiva Dilettantistica APS ETS</p>
+                            <p className="text-[#006738] text-sm">Associazione Sportiva Dilettantistica APS ETS</p>
                         </div>
                     </Link>
 

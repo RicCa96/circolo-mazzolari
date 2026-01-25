@@ -61,16 +61,16 @@ export default function HomePage() {
 
                         <div className="rounded-3xl bg-neutral p-8 text-white shadow-2xl relative overflow-hidden">
                             <div
-                                className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full -mr-16 -mt-16"/>
-                            <div className="text-sm font-bold text-secondary uppercase tracking-widest">Prossimi
+                                className="absolute top-0 right-0 w-32 h-32 bg-[#006738]/10 rounded-full -mr-16 -mt-16"/>
+                            <div className="text-sm font-bold text-[#006738] uppercase tracking-widest">Prossimi
                                 Eventi
                             </div>
                             <ul className="mt-6 space-y-4 relative z-10">
                                 {eventi.map((e, i) => (
                                     <li key={i}
-                                        className="rounded-2xl bg-neutral-400/5 p-5 border border-neutral-800/5 hover:border-secondary/50 transition-all hover:scale-[1.02] hover:bg-white/10">
+                                        className="rounded-2xl bg-neutral-400/5 p-5 border border-neutral-800/5 hover:border-[#006738]/50 transition-all hover:scale-[1.02] hover:bg-white/10">
                                         <div
-                                            className="text-xs font-bold text-secondary uppercase tracking-wider">{e.date}</div>
+                                            className="text-xs font-bold text-[#006738] uppercase tracking-wider">{e.date}</div>
                                         <div className="mt-1 font-bold text-neutral-600 text-lg">{e.title}</div>
                                         <p className="mt-2 text-sm text-neutral-400 leading-relaxed">{e.description}</p>
                                     </li>
@@ -83,7 +83,7 @@ export default function HomePage() {
                                     Contattaci per dare una mano come volontario o per iscrivere i ragazzi alle
                                     attività.
                                 </p>
-                                <p className="mt-3 text-sm font-bold text-secondary">Email: <a
+                                <p className="mt-3 text-sm font-bold text-[#006738]">Email: <a
                                     href="mailto:vezzano@anspi.re.it">vezzano@anspi.re.it</a></p>
                             </div>
                         </div>

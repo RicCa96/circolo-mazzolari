@@ -1,4 +1,5 @@
 import Container from "./Container";
+import Image from "next/image";
 
 export default function Footer() {
     return (
@@ -22,6 +23,11 @@ export default function Footer() {
                             PEC: mazzolari.03184@anspipec.it<br/>
                             Sede: Via XI Febbraio, 2 - 42030 Vezzano sul Crostolo (RE)
                         </p>
+                    </div>
+
+                    <div className="flex items-center gap-20">
+                    <Image src="./anspi.svg" alt="Logo ANSPI" width={200} height={70} className="mr-2" priority={true}/>
+                    <Image src="./logo.svg" alt="Logo ANSPI" width={200} height={70} className="mr-2" priority={true}/>
                     </div>
 
                 </div>

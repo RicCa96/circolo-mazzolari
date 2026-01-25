@@ -15,14 +15,14 @@ function Card({
 }) {
     return (
         <div className="rounded-3xl bg-white p-8 text-neutral-900 shadow-xl border border-primary/10 transition-transform hover:scale-[1.02]">
-            <div className="text-xs font-bold text-secondary uppercase tracking-wider">{tag}</div>
+            <div className="text-xs font-bold text-[#006738] uppercase tracking-wider">{tag}</div>
             <div className="mt-3 text-2xl font-bold text-neutral-900">{title}</div>
             <p className="mt-4 text-neutral-500 leading-relaxed">{description}</p>
 
             <ul className="mt-6 space-y-3 text-neutral-600">
                 {highlights.map((h) => (
                     <li key={h} className="flex gap-3 items-start">
-                        <span className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                        <span className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-[#006738]" />
                         <span>{h}</span>
                     </li>
                 ))}

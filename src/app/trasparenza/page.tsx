@@ -30,7 +30,7 @@ export default function TrasparenzaPage() {
                             icon: "🤝"
                         }
                     ].map((item, i) => (
-                        <div key={i} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm flex flex-col hover:scale-[1.02] hover:border-secondary/50">
+                        <div key={i} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm flex flex-col hover:scale-[1.02] hover:border-[#006738]/50">
                             <div className="text-3xl mb-4">{item.icon}</div>
                             <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
                             <p className="text-sm text-neutral-600 mb-6 flex-grow">{item.description}</p>
