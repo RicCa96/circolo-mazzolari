@@ -25,9 +25,9 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    <div className="flex items-center gap-20">
-                    <Image src="./anspi.svg" alt="Logo ANSPI" width={200} height={70} className="mr-2" priority={true}/>
-                    <Image src="./logo.svg" alt="Logo ANSPI" width={200} height={70} className="mr-2" priority={true}/>
+                    <div className="flex flex-col items-center gap-4">
+                        <Image src="./anspi.svg" alt="Logo ANSPI" width={120} height={45} className="mr-2" priority={true}/>
+                        <Image src="./logo.svg" alt="Logo ANSPI" width={120} height={45} className="mr-2" priority={true}/>
                     </div>
 
                 </div>
