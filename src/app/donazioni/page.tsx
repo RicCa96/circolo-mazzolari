@@ -15,32 +15,43 @@ export default function DonazioniPage() {
                     <div className="rounded-3xl bg-neutral-900 p-8 text-white shadow-xl dark:bg-neutral-800">
                         <h3 className="text-2xl font-bold text-secondary mb-4">5x1000</h3>
                         <p className="text-neutral-100 leading-relaxed mb-6">
-                            Puoi sostenere il Circolo ANSPI Don Primo Mazzolari destinando il tuo 5x1000 nella dichiarazione dei redditi. 
+                            Puoi sostenere il Circolo ANSPI Don Primo Mazzolari destinando il tuo 5x1000 nella
+                            dichiarazione dei redditi.
                             Un gesto semplice che per noi significa molto.
                         </p>
                         <div className="bg-white/10 rounded-2xl p-6 border border-white/20">
-                            <p className="text-sm uppercase tracking-widest text-secondary font-bold mb-2">Codice Fiscale</p>
-                            <p className="text-3xl font-mono font-bold tracking-tighter text-white">[INSERIRE-CODICE-FISCALE]</p>
+                            <p className="text-sm uppercase tracking-widest text-secondary font-bold mb-2">Codice
+                                Fiscale</p>
+                            {/*todo: add copy to clipboard feature*/}
+                            <p className="text-3xl font-mono font-bold tracking-tighter text-white">91010620358</p>
                         </div>
                         <p className="mt-6 text-sm text-neutral-400">
-                            Basta firmare nel riquadro &quot;Sostegno degli Enti del Terzo Settore&quot; e inserire il nostro codice fiscale.
+                            Basta firmare nel riquadro &quot;Sostegno degli Enti del Terzo Settore&quot; e inserire il
+                            nostro codice fiscale.
                         </p>
                     </div>
 
-                    <div className="rounded-3xl border border-neutral-200 bg-white p-8 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+                    <div
+                        className="rounded-3xl border border-neutral-200 bg-white p-8 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
                         <h3 className="text-2xl font-bold text-primary mb-4">Donazioni</h3>
                         <p className="text-neutral-600 leading-relaxed mb-6">
-                            Le tue donazioni ci permettono di mantenere le strutture, acquistare attrezzature sportive e 
+                            Le tue donazioni ci permettono di mantenere le strutture, acquistare attrezzature sportive e
                             sostenere i progetti educativi per i più giovani.
                         </p>
                         <div className="space-y-4">
-                            <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-100 dark:bg-neutral-800 dark:border-neutral-700">
+                            <div
+                                className="p-4 bg-neutral-50 rounded-2xl border border-neutral-100 dark:bg-neutral-800 dark:border-neutral-700">
                                 <p className="text-xs font-bold text-neutral-400 uppercase">IBAN</p>
-                                <p className="text-lg font-mono font-bold text-neutral-900 dark:text-white">[INSERIRE-IBAN]</p>
+                                <p className="text-lg font-mono font-bold text-neutral-900 dark:text-white">IT90 D 05034
+                                    66420 000000 023254</p>
+                                <p className="text-xs font-mono font-bold text-neutral-900 dark:text-white"> presso
+                                    BANCO BPM di PUIANELLO</p>
                             </div>
-                            <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-100 dark:bg-neutral-800 dark:border-neutral-700">
+                            <div
+                                className="p-4 bg-neutral-50 rounded-2xl border border-neutral-100 dark:bg-neutral-800 dark:border-neutral-700">
                                 <p className="text-xs font-bold text-neutral-400 uppercase">Intestato a</p>
-                                <p className="text-lg font-bold text-neutral-900 dark:text-white">Circolo ANSPI Don Primo Mazzolari</p>
+                                <p className="text-lg font-bold text-neutral-900 dark:text-white">Circolo ANSPI Don
+                                    Primo Mazzolari Associazione sportiva dilettantistica APS ETS</p>
                             </div>
                         </div>
                     </div>
@@ -48,7 +59,8 @@ export default function DonazioniPage() {
 
                 <div className="mt-12 rounded-3xl bg-primary/5 p-8 border border-primary/10 text-center">
                     <h3 className="text-xl font-bold text-primary mb-2">Grazie per il tuo sostegno!</h3>
-                    <p className="text-neutral-600">Ogni contributo, piccolo o grande, aiuta a costruire il futuro della nostra comunità.</p>
+                    <p className="text-neutral-600">Ogni contributo, piccolo o grande, aiuta a costruire il futuro della
+                        nostra comunità.</p>
                 </div>
             </Container>
         </section>
