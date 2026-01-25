@@ -10,10 +10,10 @@ export default function SectionTitle({
     return (
         <div className="max-w-2xl">
             {kicker ? (
-                <div className="text-xs font-bold uppercase tracking-widest text-secondary-600 dark:text-secondary">{kicker}</div>
+                <div className="text-xs font-bold uppercase tracking-widest text-primary/70">{kicker}</div>
             ) : null}
-            <h2 className="mt-2 text-2xl font-bold tracking-tight text-neutral-900 md:text-4xl dark:text-white">{title}</h2>
-            {subtitle ? <p className="mt-4 text-neutral-900 text-lg leading-relaxed dark:text-neutral-100">{subtitle}</p> : null}
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-neutral-900 md:text-4xl">{title}</h2>
+            {subtitle ? <p className="mt-4 text-neutral-500 text-lg leading-relaxed">{subtitle}</p> : null}
         </div>
     );
 }

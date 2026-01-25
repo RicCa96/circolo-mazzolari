@@ -100,7 +100,7 @@ export default function HomePage() {
                             <ul className="mt-6 space-y-4 relative z-10">
                                 {eventi.map((e, i) => (
                                     <li key={i}
-                                        className="rounded-2xl bg-neutral-400/5 p-5 border border-neutral-800/5 hover:border-secondary/50 transition-all hover:bg-white/10">
+                                        className="rounded-2xl bg-neutral-400/5 p-5 border border-neutral-800/5 hover:border-secondary/50 transition-all hover:scale-[1.02] hover:bg-white/10">
                                         <div
                                             className="text-xs font-bold text-secondary uppercase tracking-wider">{e.date}</div>
                                         <div className="mt-1 font-bold text-neutral-600 text-lg">{e.title}</div>
@@ -109,7 +109,7 @@ export default function HomePage() {
                                 ))}
                             </ul>
 
-                            <div className="mt-8 rounded-2xl bg-primary/20 border border-primary/20 p-5">
+                            <div className="mt-8 rounded-2xl bg-primary/20 border border-primary/20 p-5 hover:scale-[1.02]">
                                 <div className="text-sm font-bold text-primary">Vuoi partecipare?</div>
                                 <p className="mt-2 text-sm text-primary/70">
                                     Contattaci per dare una mano come volontario o per iscrivere i ragazzi alle
@@ -134,10 +134,10 @@ export default function HomePage() {
                     <div className="mt-10 grid gap-6 md:grid-cols-3">
                         {nostri_valori.map((c) => (
                             <div key={c.title}
-                                 className="rounded-3xl border border-neutral-800 bg-neutral-900 p-8 shadow-sm hover:shadow-md transition-all">
+                                 className="rounded-3xl border border-neutral-800/5 bg-neutral-400/5 p-8 shadow-sm hover:shadow-md hover:scale-[1.02] hover:bg-white hover:border-secondary/50 transition-all">
                                 <div className="text-3xl mb-4">{c.icon}</div>
                                 <div className="text-xl font-bold text-primary">{c.title}</div>
-                                <p className="mt-4 text-neutral-100 leading-relaxed">{c.text}</p>
+                                <p className="mt-4 text-neutral-400 leading-relaxed">{c.text}</p>
                             </div>
                         ))}
                     </div>

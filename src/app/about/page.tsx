@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function AboutPage() {
     return (
         <>
-            <section className="py-14 border-b">
+            <section className="bg-gradient-to-b from-blue-50 to-white py-14 md:py-20 border-b border-primary/10">
                 <Container>
                     <SectionTitle
                         kicker="Chi siamo"
@@ -13,8 +13,8 @@ export default function AboutPage() {
                         subtitle="Un'Associazione di Promozione Sociale (APS) iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS) come Ente del Terzo Settore (ETS)."
                     />
 
-                    <div className="mt-10 max-w-3xl mx-auto text-center">
-                        <p className="text-lg text-neutral-600 leading-relaxed">
+                    <div className="mt-10 mx-auto">
+                        <p className="text-lg text-neutral-500 leading-relaxed">
                             Siamo un punto di riferimento per la comunità di Vezzano sul Crostolo, dove bambini, ragazzi e famiglie
                             possono incontrarsi, crescere e condividere momenti di gioia. Affiliati all&apos;ANSPI
                             (Associazione Nazionale San Paolo Italia), operiamo secondo i valori cristiani di solidarietà,
@@ -24,28 +24,28 @@ export default function AboutPage() {
                 </Container>
             </section>
 
-            <section className="py-14 bg-neutral-50 dark:bg-neutral-900/50 border-b">
+            <section className="py-14 bg-neutral-50 border-b border-neutral-200">
                 <Container>
                     <div className="grid gap-12 md:grid-cols-2 items-start">
                         <div>
                             <h2 className="text-3xl font-bold text-primary mb-6">La Nostra Storia</h2>
                             <div className="space-y-6 text-neutral-600 leading-relaxed">
                                 <div>
-                                    <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Le Origini</h3>
+                                    <h3 className="text-xl font-bold text-neutral-900 mb-2">Le Origini</h3>
                                     <p>
                                         Il Circolo ANSPI Don Primo Mazzolari nasce a Vezzano sul Crostolo con l&apos;obiettivo di creare
                                         uno spazio di aggregazione, crescita e formazione per bambini, ragazzi e famiglie del territorio.
                                     </p>
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Crescita e Sviluppo</h3>
+                                    <h3 className="text-xl font-bold text-neutral-900 mb-2">Crescita e Sviluppo</h3>
                                     <p>
                                         Nel corso degli anni, il circolo si è evoluto e arricchito di nuove attività e iniziative,
                                         diventando un punto di riferimento importante per la comunità locale.
                                     </p>
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">L&apos;Affiliazione ANSPI</h3>
+                                    <h3 className="text-xl font-bold text-neutral-900 mb-2">L&apos;Affiliazione ANSPI</h3>
                                     <p>
                                         L&apos;affiliazione all&apos;ANSPI rappresenta per noi l&apos;adesione a una rete nazionale di oratori
                                         e circoli che condividono gli stessi valori di educazione cristiana, sport e aggregazione sociale.
@@ -54,7 +54,7 @@ export default function AboutPage() {
                             </div>
                         </div>
 
-                        <div className="rounded-3xl bg-white p-8 shadow-xl border border-neutral-100 dark:bg-neutral-800 dark:border-neutral-700">
+                        <div className="rounded-3xl bg-white p-8 shadow-xl border border-primary/10">
                             <div className="text-center mb-6">
                                 <p className="italic text-neutral-500 text-lg">
                                     &quot;La carità è dare tutto, perdonare tutto, soffrire tutto&quot;
@@ -62,7 +62,7 @@ export default function AboutPage() {
                                 <p className="font-bold text-primary mt-2">Don Primo Mazzolari</p>
                             </div>
 
-                            <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mb-4">Don Primo Mazzolari</h2>
+                            <h2 className="text-2xl font-bold text-neutral-900 mb-4">Don Primo Mazzolari</h2>
                             <div className="space-y-4 text-sm text-neutral-600 leading-relaxed">
                                 <p>
                                     <strong>La Vita:</strong> Don Primo Mazzolari (1890-1959) è stato un sacerdote cattolico italiano, scrittore e parroco
@@ -88,7 +88,7 @@ export default function AboutPage() {
 
             <section className="py-14">
                 <Container>
-                    <div className="rounded-3xl bg-primary p-8 text-white shadow-xl dark:bg-primary/90">
+                    <div className="rounded-3xl bg-primary p-8 text-white shadow-xl">
                         <div className="text-xl font-bold">Vuoi unirti o darci una mano?</div>
                         <p className="mt-3 text-blue-50 text-lg">
                             Siamo sempre felici di accogliere nuovi volontari e collaborazioni.

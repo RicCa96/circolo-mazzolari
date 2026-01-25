@@ -3,7 +3,7 @@ import SectionTitle from "@/components/SectionTitle";
 
 export default function TrasparenzaPage() {
     return (
-        <section className="py-14">
+        <section className="bg-gradient-to-b from-blue-50 to-white py-14 md:py-20 border-b border-primary/10">
             <Container>
                 <SectionTitle
                     kicker="Trasparenza"
@@ -11,7 +11,7 @@ export default function TrasparenzaPage() {
                     subtitle="In conformità agli obblighi di trasparenza previsti dal Codice del Terzo Settore (D.Lgs. 117/2017), mettiamo a disposizione la documentazione ufficiale."
                 />
 
-                <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-2">
                     {[
                         {
                             title: "Statuto",
@@ -20,25 +20,13 @@ export default function TrasparenzaPage() {
                             icon: "📄"
                         },
                         {
-                            title: "Bilancio",
-                            description: "Bilanci consuntivi e rendiconti delle attività svolte, per garantire massima trasparenza.",
-                            button: "Scarica Bilancio",
-                            icon: "📊"
-                        },
-                        {
-                            title: "Registro RUNTS",
-                            description: "Iscrizione al Registro Unico Nazionale del Terzo Settore come APS.",
-                            button: "Verifica Iscrizione",
-                            icon: "🏛️"
-                        },
-                        {
                             title: "Come Associarsi",
                             description: "Informazioni su come diventare socio, modalità di adesione e quota associativa.",
                             button: "Info Associazione",
                             icon: "🤝"
                         }
                     ].map((item, i) => (
-                        <div key={i} className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm flex flex-col dark:border-neutral-800 dark:bg-neutral-900">
+                        <div key={i} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm flex flex-col hover:scale-[1.02] hover:border-secondary/50">
                             <div className="text-3xl mb-4">{item.icon}</div>
                             <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
                             <p className="text-sm text-neutral-600 mb-6 flex-grow">{item.description}</p>
@@ -49,7 +37,7 @@ export default function TrasparenzaPage() {
                     ))}
                 </div>
 
-                <div className="mt-12 rounded-3xl bg-neutral-50 p-8 border border-neutral-200 dark:bg-neutral-900 dark:border-neutral-800">
+                <div className="mt-12 rounded-3xl bg-neutral-50 p-8 border border-neutral-200">
                     <h3 className="text-xl font-bold text-primary mb-4">Finalità Non Lucrative</h3>
                     <p className="text-neutral-600 leading-relaxed">
                         Il Circolo ANSPI Don Primo Mazzolari è un&apos;associazione senza scopo di lucro. Tutte le attività sono
