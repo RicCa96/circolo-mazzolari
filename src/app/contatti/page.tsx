@@ -1,6 +1,7 @@
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import {FaFacebook, FaInstagram} from "react-icons/fa";
+import Link from "next/link";
 
 export default function ContattiPage() {
     return (
@@ -43,9 +44,9 @@ export default function ContattiPage() {
                 </div>
 
                 <div className="mt-12 text-center">
-                    <button className="rounded-full bg-primary px-8 py-4 text-lg font-bold text-white hover:bg-primary/90 transition-all shadow-lg">
+                    <Link href="/come-associarsi" className="inline-block rounded-full bg-primary px-8 py-4 text-lg font-bold text-white hover:bg-primary/90 transition-all shadow-lg">
                         Diventa Socio
-                    </button>
+                    </Link>
                     <p className="mt-4 text-neutral-500">
                         Oppure scrivici per avere maggiori informazioni sulle quote associative.
                     </p>

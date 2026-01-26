@@ -9,6 +9,7 @@ const links = [
     {href: "/", label: "Home"},
     {href: "/about", label: "Chi siamo"},
     {href: "/attivita", label: "Attività"},
+    {href: "/come-associarsi", label: "Come associarsi"},
     {href: "/donazioni", label: "5x1000"},
     {href: "/trasparenza", label: "Trasparenza"},
     {href: "/contatti", label: "Contatti"},
