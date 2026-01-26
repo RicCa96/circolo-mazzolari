@@ -27,10 +27,6 @@ export default function HomePage() {
                 <Container>
                     <div className="grid items-center gap-10 md:grid-cols-2">
                         <div>
-                            {/*<div*/}
-                            {/*    className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary">*/}
-                            {/*    Vezzano sul Crostolo (RE) • Comunità • Volontariato*/}
-                            {/*</div>*/}
                             <Image src="./anspi.svg" alt="Logo ANSPI" width={200} height={70} className="mr-2" priority={true}/>
 
                             <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-neutral-900 md:text-6xl leading-[1.1]">
@@ -45,16 +41,16 @@ export default function HomePage() {
 
                             <div className="mt-6 flex flex-wrap gap-3">
                                 <Link
-                                    href="/attivita"
+                                    href="/come-associarsi"
                                     className="rounded-full bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-all shadow-md hover:shadow-lg"
                                 >
-                                    Scopri le attività
+                                    Diventa socio
                                 </Link>
                                 <Link
-                                    href="/about"
+                                    href="/attivita"
                                     className="rounded-full border-2 border-primary px-6 py-3 text-sm font-bold text-primary hover:bg-primary/5 transition-all"
                                 >
-                                    Chi siamo
+                                    Scopri le nostre attività
                                 </Link>
                             </div>
                         </div>
