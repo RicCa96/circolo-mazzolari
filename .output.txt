@@ -92,7 +92,7 @@ index ddf728b..b6002ee 100644
      return (
 -        <div className="rounded-3xl bg-neutral-900 p-8 text-white shadow-xl transition-transform hover:scale-[1.02] dark:bg-neutral-800">
 +        <div className="rounded-3xl bg-white p-8 text-neutral-900 shadow-xl border border-primary/10 transition-transform hover:scale-[1.02]">
-             <div className="text-xs font-bold text-[#006738] uppercase tracking-wider">{tag}</div>
+             <div className="text-xs font-bold text-secondary uppercase tracking-wider">{tag}</div>
 -            <div className="mt-3 text-2xl font-bold text-white">{title}</div>
 -            <p className="mt-4 text-neutral-100 leading-relaxed">{description}</p>
 +            <div className="mt-3 text-2xl font-bold text-neutral-900">{title}</div>
@@ -165,7 +165,7 @@ index 2c15a4f..796b012 100644
                  <div className="mt-10 grid gap-8 md:grid-cols-2">
 -                    <div className="rounded-3xl bg-neutral-900 p-8 text-white shadow-xl dark:bg-neutral-800">
 +                    <div className="rounded-3xl bg-white p-8 text-neutral-900 shadow-xl border border-primary/10">
-                         <h3 className="text-2xl font-bold text-[#006738] mb-4">5x1000</h3>
+                         <h3 className="text-2xl font-bold text-secondary mb-4">5x1000</h3>
 -                        <p className="text-neutral-100 leading-relaxed mb-6">
 +                        <p className="text-neutral-600 leading-relaxed mb-6">
                              Puoi sostenere il Circolo ANSPI Don Primo Mazzolari destinando il tuo 5x1000 nella
@@ -174,7 +174,7 @@ index 2c15a4f..796b012 100644
                          </p>
 -                        <div className="bg-white/10 rounded-2xl p-6 border border-white/20">
 +                        <div className="bg-primary/5 rounded-2xl p-6 border border-primary/10">
-                             <p className="text-sm uppercase tracking-widest text-[#006738] font-bold mb-2">Codice
+                             <p className="text-sm uppercase tracking-widest text-secondary font-bold mb-2">Codice
                                  Fiscale</p>
                              {/*todo: add copy to clipboard feature*/}
 -                            <p className="text-3xl font-mono font-bold tracking-tighter text-white">91010620358</p>
@@ -246,7 +246,7 @@ index 3333d78..c035165 100644
      return (
          <div className="max-w-2xl">
              {kicker ? (
--                <div className="text-xs font-bold uppercase tracking-widest text-[#006738]-600 dark:text-[#006738]">{kicker}</div>
+-                <div className="text-xs font-bold uppercase tracking-widest text-secondary-600 dark:text-secondary">{kicker}</div>
 +                <div className="text-xs font-bold uppercase tracking-widest text-primary/70">{kicker}</div>
              ) : null}
 -            <h2 className="mt-2 text-2xl font-bold tracking-tight text-neutral-900 md:text-4xl dark:text-white">{title}</h2>

@@ -26,14 +26,14 @@ export default function Nav() {
     }, [isOpen]);
 
     return (
-        <header className="sticky top-0 z-50 bg-blue-50/80 backdrop-blur border-b border-blue-100/50">
+        <header className="sticky top-0 z-50 bg-blue-50 backdrop-blur">
             <Container>
                 <div className="flex h-16 items-center justify-between">
                     <Link href="/" className="font-bold tracking-tight text-primary flex items-center shrink-0">
                         <Image src="/logo.svg" alt="Logo ANSPI" width={100} height={35} className="mr-2" priority={true}/>
                         <div className="hidden sm:block">
                             <p className="text-lg leading-tight">Circolo Don Primo Mazzolari</p>
-                            <p className="text-[#006738]/80 text-sm leading-tight">Associazione Sportiva Dilettantistica APS ETS</p>
+                            <p className="text-secondary/80 text-sm leading-tight">Associazione Sportiva Dilettantistica APS ETS</p>
                         </div>
                     </Link>
 

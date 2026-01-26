@@ -33,7 +33,7 @@ export default function CopyButton({ text, className = "" }: { text: string; cla
             strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-[#006738]"
+            className="text-secondary"
           >
             <polyline points="20 6 9 17 4 12" />
           </svg>
