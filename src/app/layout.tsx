@@ -1,6 +1,7 @@
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import {SpeedInsights} from '@vercel/speed-insights/next';
 
 export const metadata = {
     title: "Circolo ANSPI Don Primo Mazzolari | Associazione Sportiva Dilettantistica APS ETS",
@@ -15,6 +16,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <Nav/>
         <main>{children}</main>
         <Footer/>
+        <SpeedInsights/>
         </body>
         </html>
     );
