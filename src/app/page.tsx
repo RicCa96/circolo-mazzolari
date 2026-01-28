@@ -1,33 +1,25 @@
 import Container from "@/components/Container";
 import Link from "next/link";
 import Image from "next/image";
+import {client} from "@/sanity/client";
+import {SanityDocument} from "next-sanity";
+import {formatDate} from "@/utils/date.utils";
 
-const eventi = [
-    {
-        date: "Sabato 15 Febbraio 2026",
-        title: "Torneo di Calcetto Invernale",
-        description: "Grande torneo per ragazzi e adulti. Iscrizioni aperte fino al 10 febbraio!",
-    },
-    {
-        date: "Domenica 23 Febbraio 2026",
-        title: "Festa di Carnevale",
-        description: "Pomeriggio in maschera con giochi, musica e merenda per tutti. Ingresso libero.",
-    },
-    {
-        date: "Sabato 8 Marzo 2026",
-        title: "Gita al Parco Avventura",
-        description: "Giornata all'aria aperta per famiglie e ragazzi. Prenotazione obbligatoria.",
-    },
-];
+// event type documents, sorted by ascending date, only the first 3
+const EVENTS_QUERY = `*[_type == "event"]|order(date asc)[0...3]`;
 
-export default function HomePage() {
+const options = {next: {revalidate: 30}};
+
+export default async function HomePage() {
+    const events = await client.fetch<SanityDocument[]>(EVENTS_QUERY, {}, options);
     return (
         <>
             <section className="bg-gradient-to-b from-blue-50 to-white py-14 md:py-20">
                 <Container>
                     <div className="grid items-center gap-10 md:grid-cols-2">
                         <div>
-                            <Image src="./anspi.svg" alt="Logo ANSPI" width={200} height={70} className="mr-2" priority={true}/>
+                            <Image src="./anspi.svg" alt="Logo ANSPI" width={200} height={70} className="mr-2"
+                                   priority={true}/>
 
                             <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-neutral-900 md:text-6xl leading-[1.1]">
                                 Benvenuti al Circolo ANSPI Don Primo Mazzolari
@@ -62,18 +54,21 @@ export default function HomePage() {
                                 Eventi
                             </div>
                             <ul className="mt-6 space-y-4 relative z-10">
-                                {eventi.map((e, i) => (
+                                {events.map((e, i) => (
                                     <li key={i}
                                         className="rounded-2xl bg-neutral-400/5 p-5 border border-neutral-800/5 hover:border-[#006738]/50 transition-all hover:scale-[1.02] hover:bg-white/10">
                                         <div
-                                            className="text-xs font-bold text-secondary uppercase tracking-wider">{e.date}</div>
+                                            className="text-xs font-bold text-secondary uppercase tracking-wider">
+                                            {formatDate(e.date)}
+                                        </div>
                                         <div className="mt-1 font-bold text-neutral-600 text-lg">{e.title}</div>
                                         <p className="mt-2 text-sm text-neutral-400 leading-relaxed">{e.description}</p>
                                     </li>
                                 ))}
                             </ul>
 
-                            <div className="mt-8 rounded-2xl bg-primary/20 border border-primary/20 p-5 hover:scale-[1.02]">
+                            <div
+                                className="mt-8 rounded-2xl bg-primary/20 border border-primary/20 p-5 hover:scale-[1.02]">
                                 <div className="text-sm font-bold text-primary">Vuoi partecipare?</div>
                                 <p className="mt-2 text-sm text-primary/70">
                                     Contattaci per dare una mano come volontario o per iscrivere i ragazzi alle
