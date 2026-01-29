@@ -3,8 +3,10 @@ import {SanityDocument} from "next-sanity";
 export type EventType = SanityDocument & {
     _type: 'event';
     title: string;
-    date: string;           // ISO date string
+    start_date: string; // ISO date string
+    end_date?: string;  // ISO date string (optional)
+    description_short: string;
     description: string;
-    link?: string;          // optional
-    featured?: boolean;     // optional, defaults to false in schema
+    link?: string;
+    featured: boolean;
 };

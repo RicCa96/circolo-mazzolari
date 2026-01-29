@@ -7,9 +7,10 @@ interface ModalProps {
     onClose: () => void;
     title: string;
     children: ReactNode;
+    showFooter?: boolean;
 }
 
-export default function Modal({ isOpen, onClose, title, children }: ModalProps) {
+export default function Modal({ isOpen, onClose, title, children, showFooter = true }: ModalProps) {
     useEffect(() => {
         const handleEsc = (e: KeyboardEvent) => {
             if (e.key === 'Escape') onClose();
@@ -33,7 +34,7 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="flex items-center justify-between p-6 border-b border-neutral-100">
-                    <h3 className="text-xl font-bold text-primary">{title}</h3>
+                    <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
                     <button 
                         onClick={onClose}
                         className="p-2 rounded-full hover:bg-neutral-100 transition-colors text-neutral-500"
@@ -45,14 +46,16 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
                 <div className="p-6 overflow-y-auto text-neutral-600 leading-relaxed">
                     {children}
                 </div>
-                <div className="p-6 border-t border-neutral-100 flex justify-end">
-                    <button 
-                        onClick={onClose}
-                        className="px-6 py-2 rounded-full bg-primary text-white font-bold hover:bg-primary/90 transition-colors"
-                    >
-                        Chiudi
-                    </button>
-                </div>
+                {showFooter && (
+                    <div className="p-6 border-t border-neutral-100 flex justify-end">
+                        <button
+                            onClick={onClose}
+                            className="px-6 py-2 rounded-full bg-primary text-white font-bold hover:bg-primary/90 transition-colors"
+                        >
+                            Chiudi
+                        </button>
+                    </div>
+                )}
             </div>
             <div className="absolute inset-0 -z-10" onClick={onClose} />
         </div>

@@ -2,12 +2,12 @@ import Container from "@/components/Container";
 import Link from "next/link";
 import Image from "next/image";
 import {client} from "@/sanity/client";
-import {formatDate} from "@/utils/date.utils";
 import {EventType} from "@/model/event";
+import EventCard from "@/components/EventCard";
 
 // event type documents, sorted by ascending date, only the first 3
-const EVENTS_QUERY = `*[_type == "event" && featured != true]|order(date asc)[0...3]`;
-const FEATURED_EVENT_QUERY = `*[_type == "event" && featured == true]|order(date asc)[0...1]`;
+const EVENTS_QUERY = `*[_type == "event" && featured != true]|order(start_date asc)[0...3]`;
+const FEATURED_EVENT_QUERY = `*[_type == "event" && featured == true]|order(start_date asc)[0...1]`;
 
 const options = {next: {revalidate: 30}};
 
@@ -55,42 +55,14 @@ export default async function HomePage() {
                             <div className="text-sm font-bold text-secondary uppercase tracking-widest">Prossimi
                                 eventi
                             </div>
-                            <ul className="my-2 space-y-4 relative z-10">
+                            <ul className="my-2 space-y-4 relative">
                                 {featuredEvent.map((e, i) => (
-                                    <li key={i}
-                                        className="rounded-2xl bg-secondary/5 border-3 border-secondary/50 p-5 hover:border-secondary/50 transition-all hover:scale-[1.02] hover:bg-white/10">
-                                        <div
-                                            className="text-xs font-bold text-secondary uppercase tracking-wider">
-                                            {formatDate(e.date)}
-                                        </div>
-                                        <div className="mt-1 font-bold text-neutral-600 text-lg">{e.title}</div>
-                                        <p className="mt-2 text-sm text-neutral-400 leading-relaxed">{e.description}</p>
-                                        {e.link && (
-                                            <Link href={e.link}
-                                                  className="text-sm font-semibold text-secondary hover:underline">
-                                                Scopri di più
-                                            </Link>
-                                        )}
-                                    </li>
+                                    <EventCard key={i} event={e} isFeatured={true} />
                                 ))}
                             </ul>
-                            <ul className="mt-2 space-y-4 relative z-10">
+                            <ul className="mt-2 space-y-4 relative">
                                 {events.map((e, i) => (
-                                    <li key={i}
-                                        className="rounded-2xl bg-neutral-400/5 p-5 border border-neutral-800/5 hover:border-[#006738]/50 transition-all hover:scale-[1.02] hover:bg-white/10">
-                                        <div
-                                            className="text-xs font-bold text-secondary uppercase tracking-wider">
-                                            {formatDate(e.date)}
-                                        </div>
-                                        <div className="mt-1 font-bold text-neutral-600 text-lg">{e.title}</div>
-                                        <p className="mt-2 text-sm text-neutral-400 leading-relaxed">{e.description}</p>
-                                        {e.link && (
-                                            <Link href={e.link}
-                                                  className="text-sm font-semibold text-secondary hover:underline">
-                                                Scopri di più
-                                            </Link>
-                                        )}
-                                    </li>
+                                    <EventCard key={i} event={e} />
                                 ))}
                             </ul>
                         </div>
