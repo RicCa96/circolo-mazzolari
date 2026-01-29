@@ -2,16 +2,18 @@ import Container from "@/components/Container";
 import Link from "next/link";
 import Image from "next/image";
 import {client} from "@/sanity/client";
-import {SanityDocument} from "next-sanity";
 import {formatDate} from "@/utils/date.utils";
+import {EventType} from "@/model/event";
 
 // event type documents, sorted by ascending date, only the first 3
-const EVENTS_QUERY = `*[_type == "event"]|order(date asc)[0...3]`;
+const EVENTS_QUERY = `*[_type == "event" && featured != true]|order(date asc)[0...3]`;
+const FEATURED_EVENT_QUERY = `*[_type == "event" && featured == true]|order(date asc)[0...1]`;
 
 const options = {next: {revalidate: 30}};
 
 export default async function HomePage() {
-    const events = await client.fetch<SanityDocument[]>(EVENTS_QUERY, {}, options);
+    const events = await client.fetch<EventType[]>(EVENTS_QUERY, {}, options);
+    const featuredEvent = await client.fetch<EventType[]>(FEATURED_EVENT_QUERY, {}, options);
     return (
         <>
             <section className="bg-gradient-to-b from-blue-50 to-white py-14 md:py-20">
@@ -51,9 +53,27 @@ export default async function HomePage() {
                             <div
                                 className="absolute top-0 right-0 w-32 h-32 bg-[#006738]/10 rounded-full -mr-16 -mt-16"/>
                             <div className="text-sm font-bold text-secondary uppercase tracking-widest">Prossimi
-                                Eventi
+                                eventi
                             </div>
-                            <ul className="mt-6 space-y-4 relative z-10">
+                            <ul className="my-2 space-y-4 relative z-10">
+                                {featuredEvent.map((e, i) => (
+                                    <li key={i}
+                                        className="rounded-2xl bg-secondary/5 border-3 border-secondary/50 p-5 hover:border-secondary/50 transition-all hover:scale-[1.02] hover:bg-white/10">
+                                        <div
+                                            className="text-xs font-bold text-secondary uppercase tracking-wider">
+                                            {formatDate(e.date)}
+                                        </div>
+                                        <div className="mt-1 font-bold text-neutral-600 text-lg">{e.title}</div>
+                                        <p className="mt-2 text-sm text-neutral-400 leading-relaxed">{e.description}</p>
+                                        {e.link && (
+                                            <Link href={e.link} className="text-sm font-semibold text-secondary hover:underline">
+                                                Scopri di più
+                                            </Link>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                            <ul className="mt-2 space-y-4 relative z-10">
                                 {events.map((e, i) => (
                                     <li key={i}
                                         className="rounded-2xl bg-neutral-400/5 p-5 border border-neutral-800/5 hover:border-[#006738]/50 transition-all hover:scale-[1.02] hover:bg-white/10">
@@ -66,17 +86,6 @@ export default async function HomePage() {
                                     </li>
                                 ))}
                             </ul>
-
-                            <div
-                                className="mt-8 rounded-2xl bg-primary/20 border border-primary/20 p-5 hover:scale-[1.02]">
-                                <div className="text-sm font-bold text-primary">Vuoi partecipare?</div>
-                                <p className="mt-2 text-sm text-primary/70">
-                                    Contattaci per dare una mano come volontario o per iscrivere i ragazzi alle
-                                    attività.
-                                </p>
-                                <p className="mt-3 text-sm font-bold text-secondary/80">Email: <a
-                                    href="mailto:vezzano@anspi.re.it">vezzano@anspi.re.it</a></p>
-                            </div>
                         </div>
                     </div>
                 </Container>
