@@ -5,6 +5,6 @@ export type ActivityType = SanityDocument & {
     tags?: string[];
     title: string;
     description: string;
-    bullet?: string[];
+    highlights?: string[];
     featured?: boolean;
 };

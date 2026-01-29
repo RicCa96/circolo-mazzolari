@@ -1,37 +1,37 @@
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
-import { mainActivities, otherActivities } from "@/lib/activities";
+import {client} from "@/sanity/client";
+import {ActivityType} from "@/model/activity.type";
 
-function Card({
-                  title,
-                  tag,
-                  description,
-                  highlights,
-              }: {
-    title: string;
-    tag: string;
-    description: string;
-    highlights: string[];
-}) {
+function Card(activity: ActivityType) {
     return (
-        <div className="rounded-3xl bg-white p-8 text-neutral-900 shadow-xl border border-primary/10 transition-transform hover:scale-[1.02]">
-            <div className="text-xs font-bold text-secondary uppercase tracking-wider">{tag}</div>
-            <div className="mt-3 text-2xl font-bold text-neutral-900">{title}</div>
-            <p className="mt-4 text-neutral-500 leading-relaxed">{description}</p>
+        <div
+            className="rounded-3xl bg-white p-8 text-neutral-900 shadow-xl border border-primary/10 transition-transform hover:scale-[1.02]">
+            {activity.tags && <div
+                className="text-xs font-bold text-secondary uppercase tracking-wider">{activity.tags.join(' • ')}</div>}
+            <div className="mt-3 text-2xl font-bold text-neutral-900">{activity.title}</div>
+            <p className="mt-4 text-neutral-500 leading-relaxed">{activity.description}</p>
 
-            <ul className="mt-6 space-y-3 text-neutral-600">
-                {highlights.map((h) => (
+            {activity.highlights && <ul className="mt-6 space-y-3 text-neutral-600">
+                {activity.highlights.map((h) => (
                     <li key={h} className="flex gap-3 items-start">
-                        <span className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-[#006738]" />
+                        <span className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-[#006738]"/>
                         <span>{h}</span>
                     </li>
                 ))}
-            </ul>
+            </ul>}
         </div>
     );
 }
 
-export default function AttivitaPage() {
+const ACTIVITY_QUERY = `*[_type == "activity" && featured != true]|order(title asc)[0...4]`;
+const FEATURED_ACTIVITIES_QUERY = `*[_type == "activity" && featured == true]|order(title asc)[0...2]`;
+
+const options = {next: {revalidate: 30}};
+
+export default async function AttivitaPage() {
+    const activities = await client.fetch<ActivityType[]>(ACTIVITY_QUERY, {}, options);
+    const featuredActivities = await client.fetch<ActivityType[]>(FEATURED_ACTIVITIES_QUERY, {}, options);
     return (
         <section className="bg-gradient-to-b from-blue-50 to-white py-14 md:py-20 border-b border-primary/10">
             <Container>
@@ -42,8 +42,8 @@ export default function AttivitaPage() {
                 />
 
                 <div className="mt-10 grid gap-6 md:grid-cols-2">
-                    {mainActivities.map((a) => (
-                        <Card key={a.slug} {...a} />
+                    {featuredActivities.map((activity) => (
+                        <Card key={activity._id} {...activity}/>
                     ))}
                 </div>
 
@@ -54,8 +54,8 @@ export default function AttivitaPage() {
                     </p>
 
                     <div className="mt-6 grid gap-6 md:grid-cols-2">
-                        {otherActivities.map((a) => (
-                            <Card key={a.slug} {...a} />
+                        {activities.map((activity) => (
+                            <Card key={activity._id} {...activity}/>
                         ))}
                     </div>
                 </div>
