@@ -1,8 +1,13 @@
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import CopyButton from "@/components/CopyButton";
+import {client} from "@/sanity/client";
+import {BankDetailsType} from "@/model/bank-details.type";
 
-export default function DonazioniPage() {
+const BANK_DETAILS_QUERY = `*[_type == "bankInfo"][0]`;
+
+export default async function DonazioniPage() {
+    const bankDetails = await client.fetch<BankDetailsType>(BANK_DETAILS_QUERY);
     return (
         <section className="bg-gradient-to-b from-blue-50 to-white py-14 md:py-20 border-b border-primary/10">
             <Container>
@@ -24,8 +29,9 @@ export default function DonazioniPage() {
                             <p className="text-sm uppercase tracking-widest text-secondary font-bold mb-2">Codice
                                 Fiscale</p>
                             <p className="text-3xl font-mono font-bold tracking-tighter text-secondary flex justify-between">
-                                <span>91010620358</span>
-                                <CopyButton text="91010620358" className="mt-4 text-secondary hover:text-secondary/80"/>
+                                <span>{bankDetails.tax_id}</span>
+                                <CopyButton text={bankDetails.tax_id}
+                                            className="mt-4 text-secondary hover:text-secondary/80"/>
                             </p>
                         </div>
                         <p className="mt-6 text-sm text-neutral-500">
@@ -46,18 +52,17 @@ export default function DonazioniPage() {
                                 className="p-4 bg-neutral-50 rounded-2xl border border-neutral-100">
                                 <p className="text-xs font-bold text-neutral-400 uppercase">IBAN</p>
                                 <p className="text-lg font-mono font-bold text-primary flex justify-between">
-                                    <span>IT90 D 05034 66420 000000023254</span>
-                                    <CopyButton text="IT90D050346642000000023254"
+                                    <span>{bankDetails.iban}</span>
+                                    <CopyButton text={bankDetails.iban}
                                                 className="mt-2 text-primary hover:text-primary/80 text-xs"/>
                                 </p>
-                                <p className="text-xs font-mono font-bold text-neutral-900"> presso
-                                    BANCO BPM di PUIANELLO</p>
+                                <p className="text-xs font-mono font-bold text-neutral-900">presso&nbsp;
+                                    {bankDetails.iban_bank}</p>
                             </div>
                             <div
                                 className="p-4 bg-neutral-50 rounded-2xl border border-neutral-100">
                                 <p className="text-xs font-bold text-neutral-400 uppercase">Intestato a</p>
-                                <p className="text-lg font-bold text-neutral-900">Circolo ANSPI Don
-                                    Primo Mazzolari Associazione sportiva dilettantistica APS ETS</p>
+                                <p className="text-lg font-bold text-neutral-900">{bankDetails.iban_holder}</p>
                             </div>
                         </div>
                     </div>

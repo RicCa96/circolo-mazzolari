@@ -6,7 +6,7 @@ import {ActivityType} from "@/model/activity.type";
 function Card(activity: ActivityType) {
     return (
         <div
-            className="rounded-3xl bg-white p-8 text-neutral-900 shadow-xl border border-primary/10 transition-transform hover:scale-[1.02]">
+            className="rounded-3xl bg-white p-8 text-neutral-900 shadow-xl border border-primary/10 transition-transform hover:scale-[1.02] hover:border-secondary/50">
             {activity.tags && <div
                 className="text-xs font-bold text-secondary uppercase tracking-wider">{activity.tags.join(' • ')}</div>}
             <div className="mt-3 text-2xl font-bold text-neutral-900">{activity.title}</div>
