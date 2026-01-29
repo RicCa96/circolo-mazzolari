@@ -66,7 +66,8 @@ export default async function HomePage() {
                                         <div className="mt-1 font-bold text-neutral-600 text-lg">{e.title}</div>
                                         <p className="mt-2 text-sm text-neutral-400 leading-relaxed">{e.description}</p>
                                         {e.link && (
-                                            <Link href={e.link} className="text-sm font-semibold text-secondary hover:underline">
+                                            <Link href={e.link}
+                                                  className="text-sm font-semibold text-secondary hover:underline">
                                                 Scopri di più
                                             </Link>
                                         )}
@@ -83,6 +84,12 @@ export default async function HomePage() {
                                         </div>
                                         <div className="mt-1 font-bold text-neutral-600 text-lg">{e.title}</div>
                                         <p className="mt-2 text-sm text-neutral-400 leading-relaxed">{e.description}</p>
+                                        {e.link && (
+                                            <Link href={e.link}
+                                                  className="text-sm font-semibold text-secondary hover:underline">
+                                                Scopri di più
+                                            </Link>
+                                        )}
                                     </li>
                                 ))}
                             </ul>
