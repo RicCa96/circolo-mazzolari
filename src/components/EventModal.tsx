@@ -1,7 +1,7 @@
 'use client';
 
 import Modal from "./Modal";
-import {EventType} from "@/model/event";
+import {EventType} from "@/model/event.type";
 import {formatDate} from "@/utils/date.utils";
 
 interface EventModalProps {

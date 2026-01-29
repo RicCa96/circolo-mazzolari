@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import Link from "next/link";
 import Image from "next/image";
 import {client} from "@/sanity/client";
-import {EventType} from "@/model/event";
+import {EventType} from "@/model/event.type";
 import EventCard from "@/components/EventCard";
 
 // event type documents, sorted by ascending date, only the first 3

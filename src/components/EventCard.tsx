@@ -1,7 +1,7 @@
 'use client';
 
 import {useState} from "react";
-import {EventType} from "@/model/event";
+import {EventType} from "@/model/event.type";
 import {formatDate} from "@/utils/date.utils";
 import EventModal from "./EventModal";
 import Link from "next/link";
