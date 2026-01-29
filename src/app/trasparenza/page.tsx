@@ -1,8 +1,21 @@
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import Link from "next/link";
+import {client} from "@/sanity/client";
+import {BoardMemberType} from "@/model/board-member.type";
 
-export default function TrasparenzaPage() {
+const BOARD_MEMBERS_QUERY = `*[_type == "boardMember"] | order(
+  (role == "Presidente") desc,
+  (role == "Vicepresidente") desc,
+  (role == "Tesoriere") desc,
+  (role == "Segretario") desc,
+  (role == "Consigliere") desc,
+  surname asc,
+  name asc
+)`;
+
+export default async function TrasparenzaPage() {
+    const boardMembers = await client.fetch<BoardMemberType[]>(BOARD_MEMBERS_QUERY);
     return (
         <section className="bg-gradient-to-b from-blue-50 to-white py-14 md:py-20 border-b border-primary/10">
             <Container>
@@ -44,6 +57,29 @@ export default function TrasparenzaPage() {
                             </Link>
                         </div>
                     ))}
+                    {boardMembers.length > 0 && (
+                        <div
+                            className="md:col-span-2 rounded-3xl border border-primary/10 bg-white p-8 shadow-sm transition-all">
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="text-4xl">👥</div>
+                                <div>
+                                    <h3 className="text-2xl font-bold text-primary">Organo di Amministrazione</h3>
+                                    <p className="text-neutral-600">Il Consiglio Direttivo attualmente in carica</p>
+                                </div>
+                            </div>
+                            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                {boardMembers.map((member) => (
+                                    <div key={member._id}
+                                         className="flex flex-col p-4 rounded-2xl bg-primary/5 border border-primary/10">
+                                        <span
+                                            className="font-bold text-primary leading-tight">{member.surname} {member.name}</span>
+                                        <span
+                                            className="text-xs text-neutral-500 uppercase tracking-widest font-bold mt-1">{member.role}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
 
                 <div className="mt-12 rounded-3xl bg-neutral-50 p-8 border border-neutral-200">
