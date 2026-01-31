@@ -1,6 +1,7 @@
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
 import {SpeedInsights} from '@vercel/speed-insights/next';
 
 export const metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <Nav/>
         <main>{children}</main>
         <Footer/>
+        <CookieBanner/>
         <SpeedInsights/>
         </body>
         </html>

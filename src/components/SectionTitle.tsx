@@ -2,13 +2,15 @@ export default function SectionTitle({
                                          kicker,
                                          title,
                                          subtitle,
+                                         className
                                      }: {
     kicker?: string;
     title: string;
     subtitle?: string;
+    className?: string;
 }) {
     return (
-        <div className="max-w-2xl">
+        <div className={`max-w-2xl ${className || ""}`}>
             {kicker ? (
                 <div className="text-xs font-bold uppercase tracking-widest text-primary/70">{kicker}</div>
             ) : null}

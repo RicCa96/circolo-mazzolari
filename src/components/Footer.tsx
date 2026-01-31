@@ -1,5 +1,6 @@
 import Container from "./Container";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -32,8 +33,14 @@ export default function Footer() {
 
                 </div>
 
-                <div className="mt-8 text-xs text-neutral-700">
-                    © {new Date().getFullYear()} Circolo ANSPI Don Primo Mazzolari — Tutti i diritti riservati.
+                <div className="mt-8 text-xs text-neutral-700 flex flex-col md:flex-row justify-between gap-4">
+                    <div>
+                        © {new Date().getFullYear()} Circolo ANSPI Don Primo Mazzolari — Tutti i diritti riservati.
+                    </div>
+                    <div className="flex gap-4">
+                        <Link href="/privacy-policy" className="hover:underline text-neutral-500 hover:text-primary transition-colors">Privacy Policy</Link>
+                        <Link href="/cookie-policy" className="hover:underline text-neutral-500 hover:text-primary transition-colors">Cookie Policy</Link>
+                    </div>
                 </div>
             </Container>
         </footer>

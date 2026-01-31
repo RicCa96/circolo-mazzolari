@@ -25,7 +25,7 @@ export default async function TrasparenzaPage() {
                     subtitle="In conformità agli obblighi di trasparenza previsti dal Codice del Terzo Settore (D.Lgs. 117/2017), mettiamo a disposizione la documentazione ufficiale."
                 />
 
-                <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+                <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {[
                         {
                             title: "Statuto",
@@ -34,6 +34,14 @@ export default async function TrasparenzaPage() {
                             href: "/statuto.pdf",
                             download: true,
                             icon: "📄"
+                        },
+                        {
+                            title: "Privacy",
+                            description: "Informativa completa sul trattamento dei dati personali (GDPR).",
+                            button: "Scarica Informativa",
+                            href: "/trattamento.pdf",
+                            download: "informativa_trattamento_dati_mazzolari.pdf",
+                            icon: "🔒"
                         },
                         {
                             title: "Come Associarsi",
@@ -59,7 +67,7 @@ export default async function TrasparenzaPage() {
                     ))}
                     {boardMembers.length > 0 && (
                         <div
-                            className="md:col-span-2 rounded-3xl border border-primary/10 bg-white p-8 shadow-sm transition-all">
+                            className="md:col-span-3 rounded-3xl border border-primary/10 bg-white p-8 shadow-sm transition-all">
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="text-4xl">👥</div>
                                 <div>
