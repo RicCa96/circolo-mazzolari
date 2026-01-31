@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import {SpeedInsights} from '@vercel/speed-insights/next';
+import {Analytics} from "@vercel/analytics/next"
 
 export const metadata = {
     title: "Circolo ANSPI Don Primo Mazzolari | Associazione Sportiva Dilettantistica APS ETS",
@@ -19,6 +20,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <Footer/>
         <CookieBanner/>
         <SpeedInsights/>
+        <Analytics/>
         </body>
         </html>
     );
