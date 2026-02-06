@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
                     </Link>
                 </div>
 
-                <div className="mt-10 bg-white p-8 rounded-3xl border border-primary/10 shadow-sm">
+                <div className="mt-10 bg-white p-8 rounded-3xl border border-primary/10 shadow-lg">
                     <h3 className="text-xl font-bold text-primary mb-4">1. Titolare del Trattamento</h3>
                     <p className="text-neutral-600 mb-6">
                         Il Titolare del Trattamento è il <strong>Circolo ANSPI Don Primo Mazzolari ASD APS ETS</strong>, con sede in Via XI Febbraio, 2 - 42030 Vezzano sul Crostolo (RE).

@@ -54,7 +54,7 @@ export default function AboutPage() {
                             </div>
                         </div>
 
-                        <div className="rounded-3xl bg-white p-8 shadow-xl border border-primary/10">
+                        <div className="rounded-3xl bg-white p-8 shadow-lg border border-primary/10">
                             <div className="text-center mb-6">
                                 <p className="italic text-neutral-500 text-lg">
                                     &quot;La carità è dare tutto, perdonare tutto, soffrire tutto&quot;
@@ -88,7 +88,7 @@ export default function AboutPage() {
 
             <section className="py-14">
                 <Container>
-                    <div className="rounded-3xl bg-primary p-8 text-white shadow-xl">
+                    <div className="rounded-3xl bg-primary p-8 text-white shadow-lg">
                         <div className="text-xl font-bold">Vuoi unirti o darci una mano?</div>
                         <p className="mt-3 text-blue-50 text-lg">
                             Siamo sempre felici di accogliere nuovi volontari e collaborazioni.

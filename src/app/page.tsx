@@ -49,7 +49,7 @@ export default async function HomePage() {
                             </div>
                         </div>
 
-                        <div className="rounded-3xl bg-neutral p-8 text-white shadow-2xl relative overflow-hidden">
+                        <div className="rounded-3xl bg-neutral p-8 text-white shadow-lg relative overflow-hidden">
                             <div
                                 className="absolute top-0 right-0 w-32 h-32 bg-[#006738]/10 rounded-full -mr-16 -mt-16"/>
                             <div className="text-sm font-bold text-secondary uppercase tracking-widest">Prossimi

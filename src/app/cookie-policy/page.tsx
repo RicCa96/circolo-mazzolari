@@ -11,7 +11,7 @@ export default function CookiePolicyPage() {
                     subtitle="Informazioni sull'utilizzo dei cookie su questo sito web."
                 />
 
-                <div className="mt-10 bg-white p-8 rounded-3xl border border-primary/10 shadow-sm space-y-8">
+                <div className="mt-10 bg-white p-8 rounded-3xl border border-primary/10 shadow-lg space-y-8">
                     <div>
                         <h3 className="text-xl font-bold text-primary mb-4">Cosa sono i cookie</h3>
                         <p className="text-neutral-600">

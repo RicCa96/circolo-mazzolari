@@ -18,7 +18,7 @@ export default async function DonazioniPage() {
                 />
 
                 <div className="mt-10 grid gap-8 md:grid-cols-2">
-                    <div className="rounded-3xl bg-white p-8 text-neutral-900 shadow-xl border border-primary/10">
+                    <div className="rounded-3xl bg-white p-8 text-neutral-900 shadow-lg border border-primary/10">
                         <h3 className="text-2xl font-bold text-secondary mb-4">5x1000</h3>
                         <p className="text-neutral-600 leading-relaxed mb-6">
                             Puoi sostenere il Circolo ANSPI Don Primo Mazzolari destinando il tuo 5x1000 nella
@@ -41,7 +41,7 @@ export default async function DonazioniPage() {
                     </div>
 
                     <div
-                        className="rounded-3xl border border-primary/10 bg-white p-8 shadow-sm">
+                        className="rounded-3xl border border-primary/10 bg-white p-8 shadow-lg">
                         <h3 className="text-2xl font-bold text-primary mb-4">Donazioni</h3>
                         <p className="text-neutral-600 leading-relaxed mb-6">
                             Le tue donazioni ci permettono di mantenere le strutture, acquistare attrezzature sportive e

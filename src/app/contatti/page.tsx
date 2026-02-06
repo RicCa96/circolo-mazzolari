@@ -14,7 +14,7 @@ export default function ContattiPage() {
                 />
 
                 <div className="mt-10 grid gap-8 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
-                    <div className="rounded-3xl border border-primary/10 bg-white p-8 shadow-sm">
+                    <div className="rounded-3xl border border-primary/10 bg-white p-8 shadow-lg">
                         <div className="text-2xl mb-4">📍</div>
                         <h3 className="text-xl font-bold text-primary mb-2">Indirizzo</h3>
                         <p className="text-neutral-600">
@@ -23,7 +23,7 @@ export default function ContattiPage() {
                         </p>
                     </div>
 
-                    <div className="rounded-3xl border border-primary/10 bg-white p-8 shadow-sm">
+                    <div className="rounded-3xl border border-primary/10 bg-white p-8 shadow-lg">
                         <div className="text-2xl mb-4">📧</div>
                         <h3 className="text-xl font-bold text-primary mb-2">Email</h3>
                         <p className="text-neutral-600">
@@ -33,7 +33,7 @@ export default function ContattiPage() {
                         </p>
                     </div>
 
-                    <div className="rounded-3xl border border-primary/10 bg-white p-8 shadow-sm lg:col-span-1 md:col-span-2 col-span-1">
+                    <div className="rounded-3xl border border-primary/10 bg-white p-8 shadow-lg lg:col-span-1 md:col-span-2 col-span-1">
                         <div className="text-2xl mb-4">📱</div>
                         <h3 className="text-xl font-bold text-primary mb-2">Social Media</h3>
                         <div className="grid md:grid-cols-2 gap-2">

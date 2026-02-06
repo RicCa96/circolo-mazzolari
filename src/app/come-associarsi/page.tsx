@@ -25,7 +25,7 @@ export default async function ComeAssociarsiPage() {
                 <div className="mt-10 grid gap-8 lg:grid-cols-2">
                     <div className="space-y-8">
                         {/* Costi */}
-                        <div className="rounded-3xl bg-white p-8 shadow-sm border border-primary/10">
+                        <div className="rounded-3xl bg-white p-8 shadow-lg border border-primary/10">
                             <h3 className="text-2xl font-bold text-primary mb-4">Costi per il {CURRENT_YEAR}</h3>
                             <ul className="space-y-3">
                                 {subscriptionPrices.map((price) => (
@@ -44,7 +44,7 @@ export default async function ComeAssociarsiPage() {
                         </div>
 
                         {/* Rinnovo */}
-                        <div className="rounded-3xl bg-white p-8 shadow-sm border border-secondary/20 bg-secondary/5">
+                        <div className="rounded-3xl bg-white p-8 shadow-lg border border-secondary/20 bg-secondary/5">
                             <h4 className="text-2xl font-bold text-secondary mb-4">Semplice Rinnovo</h4>
                             <p className="text-neutral-600 mb-6">L’adesione può essere fatta mediante bonifico
                                 bancario:</p>
@@ -65,7 +65,7 @@ export default async function ComeAssociarsiPage() {
                     </div>
 
                     {/* Prima Iscrizione */}
-                    <div className="rounded-3xl bg-white p-8 shadow-sm border border-primary/10">
+                    <div className="rounded-3xl bg-white p-8 shadow-lg border border-primary/10">
                         <h4 className="text-2xl font-bold text-primary mb-6">Prima Iscrizione</h4>
                         <ol className="space-y-6">
                             <li className="flex gap-4">

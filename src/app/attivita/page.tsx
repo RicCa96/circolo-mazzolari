@@ -6,7 +6,7 @@ import {ActivityType} from "@/model/activity.type";
 function Card(activity: ActivityType) {
     return (
         <div
-            className="rounded-3xl bg-white p-8 text-neutral-900 shadow-xl border border-primary/10 transition-transform hover:scale-[1.02] hover:border-secondary/50">
+            className="rounded-3xl bg-white p-8 text-neutral-900 shadow-lg border border-primary/10 transition-transform hover:scale-[1.02] hover:border-secondary/50">
             {activity.tags && <div
                 className="text-xs font-bold text-secondary uppercase tracking-wider">{activity.tags.join(' • ')}</div>}
             <div className="mt-3 text-2xl font-bold text-neutral-900">{activity.title}</div>
@@ -60,7 +60,7 @@ export default async function AttivitaPage() {
                     </div>
                 </div>
 
-                <div className="mt-16 rounded-3xl bg-primary p-8 text-white shadow-xl">
+                <div className="mt-16 rounded-3xl bg-primary p-8 text-white shadow-lg">
                     <div className="text-xl font-bold">Info e iscrizioni</div>
                     <p className="mt-3 text-blue-50 text-lg">
                         Vuoi partecipare ai campeggi o dare una mano per la Sagra? Scrivici:

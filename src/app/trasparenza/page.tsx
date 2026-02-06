@@ -3,6 +3,7 @@ import SectionTitle from "@/components/SectionTitle";
 import Link from "next/link";
 import {client} from "@/sanity/client";
 import {BoardMemberType} from "@/model/board-member.type";
+import {TransparencyCommunication} from "@/model/transparency-communication.type";
 
 const BOARD_MEMBERS_QUERY = `*[_type == "boardMember"] | order(
   (role == "Presidente") desc,
@@ -14,8 +15,11 @@ const BOARD_MEMBERS_QUERY = `*[_type == "boardMember"] | order(
   name asc
 )`;
 
+const TRANSPARENCY_COMMUNICATIONS_QUERY = `*[_type == "transparencyCommunication"] | order(title asc)`;
+
 export default async function TrasparenzaPage() {
     const boardMembers = await client.fetch<BoardMemberType[]>(BOARD_MEMBERS_QUERY);
+    const transparencyCommunications = await client.fetch<TransparencyCommunication[]>(TRANSPARENCY_COMMUNICATIONS_QUERY);
     return (
         <section className="bg-gradient-to-b from-blue-50 to-white py-14 md:py-20 border-b border-primary/10">
             <Container>
@@ -52,7 +56,7 @@ export default async function TrasparenzaPage() {
                         }
                     ].map((item, i) => (
                         <div key={i}
-                             className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm flex flex-col hover:scale-[1.02] hover:border-[#006738]/50">
+                             className="rounded-3xl border border-primary/10 bg-white p-6 shadow-lg flex flex-col hover:scale-[1.02] hover:border-[#006738]/50">
                             <div className="text-3xl mb-4">{item.icon}</div>
                             <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
                             <p className="text-sm text-neutral-600 mb-6 flex-grow">{item.description}</p>
@@ -67,7 +71,7 @@ export default async function TrasparenzaPage() {
                     ))}
                     {boardMembers.length > 0 && (
                         <div
-                            className="md:col-span-3 rounded-3xl border border-primary/10 bg-white p-8 shadow-sm transition-all">
+                            className="md:col-span-3 rounded-3xl border border-primary/10 bg-white p-8 shadow-lg transition-all">
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="text-4xl">👥</div>
                                 <div>
@@ -89,6 +93,13 @@ export default async function TrasparenzaPage() {
                         </div>
                     )}
                 </div>
+
+                {transparencyCommunications && transparencyCommunications.map((c) => (
+                    <div key={c._id} className="mt-12 rounded-3xl border border-primary/10 bg-white p-8 shadow-lg">
+                        <h3 className="text-xl font-bold text-primary mb-4">{c.title}</h3>
+                        <p className="text-neutral-600 leading-relaxed">{c.body}</p>
+                    </div>
+                ))}
 
                 <div className="mt-12 rounded-3xl bg-neutral-50 p-8 border border-neutral-200">
                     <h3 className="text-xl font-bold text-primary mb-4">Finalità Non Lucrative</h3>
