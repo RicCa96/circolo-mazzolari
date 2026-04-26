@@ -4,6 +4,8 @@ import SectionTitle from "@/components/SectionTitle";
 import CopyButton from "@/components/CopyButton";
 import {client} from "@/sanity/client";
 import {BankDetailsType} from "@/model/bank-details.type";
+import JsonLd from "@/components/JsonLd";
+import {breadcrumbsJsonLd} from "@/utils/jsonld";
 
 export const metadata: Metadata = {
     title: "Donazioni e 5x1000 — Sostieni il Circolo",
@@ -19,6 +21,7 @@ export default async function DonazioniPage() {
     const bankDetails = await client.fetch<BankDetailsType>(BANK_DETAILS_QUERY);
     return (
         <section className="bg-gradient-to-b from-blue-50 to-white py-14 md:py-20 border-b border-primary/10">
+            <JsonLd data={breadcrumbsJsonLd([{name: "Donazioni e 5x1000", path: "/donazioni"}])}/>
             <Container>
                 <SectionTitle
                     kicker="Sostienici"
@@ -28,7 +31,7 @@ export default async function DonazioniPage() {
 
                 <div className="mt-10 grid gap-8 md:grid-cols-2">
                     <div className="rounded-3xl bg-white p-8 text-neutral-900 shadow-lg border border-primary/10">
-                        <h3 className="text-2xl font-bold text-secondary mb-4">5x1000</h3>
+                        <h2 className="text-2xl font-bold text-secondary mb-4">5x1000</h2>
                         <p className="text-neutral-600 leading-relaxed mb-6">
                             Puoi sostenere il Circolo ANSPI Don Primo Mazzolari destinando il tuo 5x1000 nella
                             dichiarazione dei redditi.
@@ -51,7 +54,7 @@ export default async function DonazioniPage() {
 
                     <div
                         className="rounded-3xl border border-primary/10 bg-white p-8 shadow-lg">
-                        <h3 className="text-2xl font-bold text-primary mb-4">Donazioni</h3>
+                        <h2 className="text-2xl font-bold text-primary mb-4">Donazioni</h2>
                         <p className="text-neutral-600 leading-relaxed mb-6">
                             Le tue donazioni ci permettono di mantenere le strutture, acquistare attrezzature sportive e
                             sostenere i progetti educativi per i più giovani.
@@ -78,7 +81,7 @@ export default async function DonazioniPage() {
                 </div>
 
                 <div className="mt-12 rounded-3xl bg-primary/5 p-8 border border-primary/10 text-center">
-                    <h3 className="text-xl font-bold text-primary mb-2">Grazie per il tuo sostegno!</h3>
+                    <h2 className="text-xl font-bold text-primary mb-2">Grazie per il tuo sostegno!</h2>
                     <p className="text-neutral-600">Ogni contributo, piccolo o grande, aiuta a costruire il futuro della
                         nostra comunità.</p>
                 </div>

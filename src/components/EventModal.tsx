@@ -15,8 +15,13 @@ export default function EventModal({event, isOpen, onClose}: EventModalProps) {
         <Modal isOpen={isOpen} onClose={onClose} title={event.title} showFooter={false}>
             <div className="flex flex-col gap-4">
                 <div className="text-xs font-bold text-secondary uppercase tracking-wider">
-                    {formatDate(event.start_date)}
-                    {event.end_date && ` - ${formatDate(event.end_date)}`}
+                    <time dateTime={event.start_date}>{formatDate(event.start_date)}</time>
+                    {event.end_date && (
+                        <>
+                            {" - "}
+                            <time dateTime={event.end_date}>{formatDate(event.end_date)}</time>
+                        </>
+                    )}
                 </div>
 
                 <div className="text-neutral-600 leading-relaxed whitespace-pre-wrap">
@@ -29,6 +34,7 @@ export default function EventModal({event, isOpen, onClose}: EventModalProps) {
                             href={event.link}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={`Scopri di più su ${event.title} (apre in una nuova scheda)`}
                             className="inline-flex items-center text-sm font-semibold text-secondary hover:underline gap-1"
                         >
                             <span>Scopri di più</span>

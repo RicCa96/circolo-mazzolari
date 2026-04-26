@@ -3,6 +3,8 @@ import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import {client} from "@/sanity/client";
 import {ActivityType} from "@/model/activity.type";
+import JsonLd from "@/components/JsonLd";
+import {breadcrumbsJsonLd} from "@/utils/jsonld";
 
 export const metadata: Metadata = {
     title: "Attività — Campeggi a Vaglie e Sagra della Madonna della Neve",
@@ -20,22 +22,22 @@ export const metadata: Metadata = {
 
 function Card(activity: ActivityType) {
     return (
-        <div
+        <article
             className="rounded-3xl bg-white p-8 text-neutral-900 shadow-lg border border-primary/10 transition-transform hover:scale-[1.02] hover:border-secondary/50">
             {activity.tags && <div
-                className="text-xs font-bold text-secondary uppercase tracking-wider">{activity.tags.join(' • ')}</div>}
-            <div className="mt-3 text-2xl font-bold text-neutral-900">{activity.title}</div>
+                className="text-xs font-bold text-secondary uppercase tracking-wider" aria-label={`Tag: ${activity.tags.join(', ')}`}>{activity.tags.join(' • ')}</div>}
+            <h2 className="mt-3 text-2xl font-bold text-neutral-900">{activity.title}</h2>
             <p className="mt-4 text-neutral-500 leading-relaxed">{activity.description}</p>
 
             {activity.highlights && <ul className="mt-6 space-y-3 text-neutral-600">
                 {activity.highlights.map((h) => (
                     <li key={h} className="flex gap-3 items-start">
-                        <span className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-[#006738]"/>
+                        <span aria-hidden="true" className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-[#006738]"/>
                         <span>{h}</span>
                     </li>
                 ))}
             </ul>}
-        </div>
+        </article>
     );
 }
 
@@ -49,6 +51,7 @@ export default async function AttivitaPage() {
     const featuredActivities = await client.fetch<ActivityType[]>(FEATURED_ACTIVITIES_QUERY, {}, options);
     return (
         <section className="bg-gradient-to-b from-blue-50 to-white py-14 md:py-20 border-b border-primary/10">
+            <JsonLd data={breadcrumbsJsonLd([{name: "Attività", path: "/attivita"}])}/>
             <Container>
                 <SectionTitle
                     kicker="Le nostre attività"
@@ -63,7 +66,7 @@ export default async function AttivitaPage() {
                 </div>
 
                 <div className="mt-12">
-                    <div className="text-lg font-bold text-neutral-900">Altre attività</div>
+                    <h2 className="text-lg font-bold text-neutral-900">Altre attività</h2>
                     <p className="mt-2 text-neutral-600">
                         Durante l’anno portiamo avanti anche proposte sportive e progetti per ragazzi e famiglie.
                     </p>
@@ -76,7 +79,7 @@ export default async function AttivitaPage() {
                 </div>
 
                 <div className="mt-16 rounded-3xl bg-primary p-8 text-white shadow-lg">
-                    <div className="text-xl font-bold">Info e iscrizioni</div>
+                    <h2 className="text-xl font-bold">Info e iscrizioni</h2>
                     <p className="mt-3 text-blue-50 text-lg">
                         Vuoi partecipare ai campeggi o dare una mano per la Sagra? Scrivici:
                         <span className="font-bold text-white"> vezzano@anspi.re.it</span>.

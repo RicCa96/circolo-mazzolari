@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import {useEffect, useId, useState} from "react";
 import Link from "next/link";
 import Container from "./Container";
 
 export default function CookieBanner() {
     const [isVisible, setIsVisible] = useState(false);
+    const titleId = useId();
+    const descId = useId();
 
     useEffect(() => {
         const consent = localStorage.getItem("cookie-consent");
@@ -22,11 +24,18 @@ export default function CookieBanner() {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 z-50 p-4">
+        <div
+            role="dialog"
+            aria-labelledby={titleId}
+            aria-describedby={descId}
+            aria-live="polite"
+            className="fixed bottom-0 left-0 right-0 z-50 p-4"
+        >
             <Container className="!px-0">
                 <div className="bg-white border border-primary/20 shadow-2xl rounded-3xl p-6 md:p-8">
+                    <h2 id={titleId} className="sr-only">Avviso cookie</h2>
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="text-sm text-neutral-600 leading-relaxed">
+                        <div id={descId} className="text-sm text-neutral-600 leading-relaxed">
                             <p>
                                 Utilizziamo i cookie tecnici per migliorare la tua esperienza sul nostro sito.
                                 Proseguendo la navigazione o cliccando su &quot;Accetta&quot;, acconsenti all&apos;uso dei cookie.
@@ -42,7 +51,9 @@ export default function CookieBanner() {
                         </div>
                         <div className="flex shrink-0 gap-3 w-full md:w-auto">
                             <button
+                                type="button"
                                 onClick={acceptCookies}
+                                aria-label="Accetta i cookie e chiudi l'avviso"
                                 className="w-full md:w-auto bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 cursor-pointer"
                             >
                                 Accetta

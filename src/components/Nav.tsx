@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Container from "./Container";
 import Image from "next/image";
-import {useEffect, useState} from "react";
+import {useEffect, useId, useState} from "react";
+import {usePathname} from "next/navigation";
 
 const links = [
     {href: "/", label: "Home"},
@@ -17,21 +18,33 @@ const links = [
 
 export default function Nav() {
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
+    const menuId = useId();
 
-    // Close menu when clicking outside
     useEffect(() => {
         if (!isOpen) return;
         const handleClick = () => setIsOpen(false);
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setIsOpen(false);
+        };
         window.addEventListener("click", handleClick);
-        return () => window.removeEventListener("click", handleClick);
+        window.addEventListener("keydown", handleKey);
+        return () => {
+            window.removeEventListener("click", handleClick);
+            window.removeEventListener("keydown", handleKey);
+        };
     }, [isOpen]);
 
     return (
         <header className="sticky top-0 z-50 bg-blue-50 backdrop-blur">
             <Container>
                 <div className="flex h-16 items-center justify-between">
-                    <Link href="/" className="font-bold tracking-tight text-primary flex items-center shrink-0">
-                        <Image src="/logo.svg" alt="Logo Circolo ANSPI Don Primo Mazzolari" width={100} height={35}
+                    <Link
+                        href="/"
+                        className="font-bold tracking-tight text-primary flex items-center shrink-0"
+                        aria-label="Circolo Don Primo Mazzolari — Home"
+                    >
+                        <Image src="/logo.svg" alt="" aria-hidden="true" width={100} height={35}
                                className="mr-2" priority={true}/>
                         <div className="hidden sm:block">
                             <p className="text-2xl leading-tight">Circolo Don Primo Mazzolari</p>
@@ -40,25 +53,29 @@ export default function Nav() {
                         </div>
                     </Link>
 
-                    <div className="relative" onClick={(e) => e.stopPropagation()}>
+                    <nav aria-label="Navigazione principale" className="relative" onClick={(e) => e.stopPropagation()}>
                         <button
+                            type="button"
                             onClick={() => setIsOpen(!isOpen)}
                             className={`p-2.5 rounded-full transition-all duration-300 flex items-center justify-center bg-transparent text-primary ${
                                 isOpen ? 'rotate-90' : ''
                             }`}
-                            aria-label="Menu"
+                            aria-label={isOpen ? "Chiudi menu" : "Apri menu"}
+                            aria-expanded={isOpen}
+                            aria-controls={menuId}
+                            aria-haspopup="true"
                         >
                             {isOpen ? (
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                      fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"
-                                     strokeLinejoin="round">
+                                     strokeLinejoin="round" aria-hidden="true" focusable="false">
                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                     <line x1="6" y1="6" x2="18" y2="18"></line>
                                 </svg>
                             ) : (
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                      fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"
-                                     strokeLinejoin="round">
+                                     strokeLinejoin="round" aria-hidden="true" focusable="false">
                                     <line x1="3" y1="12" x2="21" y2="12"></line>
                                     <line x1="3" y1="6" x2="21" y2="6"></line>
                                     <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -66,25 +83,33 @@ export default function Nav() {
                             )}
                         </button>
 
-                        <div
+                        <ul
+                            id={menuId}
+                            aria-hidden={!isOpen}
                             className={`absolute right-0 mt-4 w-48 bg-white rounded-2xl shadow-2xl border border-blue-50 py-2 flex flex-col gap-1 transition-all duration-300 origin-top-right ${
                                 isOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
                             }`}>
-                            {links.map((l, i) => (
-                                <Link
-                                    key={l.href}
-                                    href={l.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className={`px-4 py-3 text-sm text-neutral-700 font-bold hover:bg-primary/10 hover:text-primary transition-all flex items-center ${
-                                        isOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
-                                    }`}
-                                    style={{transitionDelay: `${isOpen ? i * 40 : 0}ms`}}
-                                >
-                                    {l.label}
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
+                            {links.map((l, i) => {
+                                const isActive = pathname === l.href;
+                                return (
+                                    <li key={l.href}>
+                                        <Link
+                                            href={l.href}
+                                            onClick={() => setIsOpen(false)}
+                                            aria-current={isActive ? "page" : undefined}
+                                            tabIndex={isOpen ? 0 : -1}
+                                            className={`px-4 py-3 text-sm text-neutral-700 font-bold hover:bg-primary/10 hover:text-primary transition-all flex items-center ${
+                                                isOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
+                                            } ${isActive ? 'text-primary bg-primary/5' : ''}`}
+                                            style={{transitionDelay: `${isOpen ? i * 40 : 0}ms`}}
+                                        >
+                                            {l.label}
+                                        </Link>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </nav>
                 </div>
             </Container>
         </header>

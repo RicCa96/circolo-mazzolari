@@ -105,8 +105,14 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
         <html lang="it">
         <body className="min-h-screen bg-white text-neutral-800 antialiased">
+        <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-full focus:shadow-lg"
+        >
+            Salta al contenuto principale
+        </a>
         <Nav/>
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer/>
         <CookieBanner/>
         <SpeedInsights/>

@@ -93,23 +93,27 @@ export default async function HomePage() {
                             </div>
                         </div>
 
-                        <div className="rounded-3xl bg-neutral p-8 text-white shadow-lg relative overflow-hidden">
-                            <div
+                        <section aria-labelledby="upcoming-events-heading"
+                                 className="rounded-3xl bg-neutral p-8 text-white shadow-lg relative overflow-hidden">
+                            <div aria-hidden="true"
                                 className="absolute top-0 right-0 w-32 h-32 bg-[#006738]/10 rounded-full -mr-16 -mt-16"/>
-                            <div className="text-sm font-bold text-secondary uppercase tracking-widest">Prossimi
-                                eventi
-                            </div>
-                            <ul className="my-2 space-y-4 relative">
-                                {featuredEvent.map((e, i) => (
-                                    <EventCard key={i} event={e} isFeatured={true} />
-                                ))}
-                            </ul>
-                            <ul className="mt-2 space-y-4 relative">
+                            <h2 id="upcoming-events-heading"
+                                className="text-sm font-bold text-secondary uppercase tracking-widest">
+                                Prossimi eventi
+                            </h2>
+                            {featuredEvent.length > 0 && (
+                                <ul aria-label="Evento in evidenza" className="my-2 space-y-4 relative">
+                                    {featuredEvent.map((e, i) => (
+                                        <EventCard key={i} event={e} isFeatured={true}/>
+                                    ))}
+                                </ul>
+                            )}
+                            <ul aria-label="Altri prossimi eventi" className="mt-2 space-y-4 relative">
                                 {events.map((e, i) => (
-                                    <EventCard key={i} event={e} />
+                                    <EventCard key={i} event={e}/>
                                 ))}
                             </ul>
-                        </div>
+                        </section>
                     </div>
                 </Container>
             </section>

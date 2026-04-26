@@ -6,6 +6,8 @@ import CopyButton from "@/components/CopyButton";
 import {client} from "@/sanity/client";
 import {SubscriptionCostType} from "@/model/subscription-cost.type";
 import {BankDetailsType} from "@/model/bank-details.type";
+import JsonLd from "@/components/JsonLd";
+import {breadcrumbsJsonLd} from "@/utils/jsonld";
 
 export const metadata: Metadata = {
     title: "Come associarsi — Quote e modulo di adesione",
@@ -24,6 +26,7 @@ export default async function ComeAssociarsiPage() {
     const bankDetails = await client.fetch<BankDetailsType>(BANK_DETAILS_QUERY);
     return (
         <section className="bg-gradient-to-b from-blue-50 to-white py-14 md:py-20 border-b border-primary/10">
+            <JsonLd data={breadcrumbsJsonLd([{name: "Come associarsi", path: "/come-associarsi"}])}/>
             <Container>
                 <SectionTitle
                     kicker="Associazione"
@@ -35,7 +38,7 @@ export default async function ComeAssociarsiPage() {
                     <div className="space-y-8">
                         {/* Costi */}
                         <div className="rounded-3xl bg-white p-8 shadow-lg border border-primary/10">
-                            <h3 className="text-2xl font-bold text-primary mb-4">Costi per il {CURRENT_YEAR}</h3>
+                            <h2 className="text-2xl font-bold text-primary mb-4">Costi per il {CURRENT_YEAR}</h2>
                             <ul className="space-y-3">
                                 {subscriptionPrices.map((price) => (
                                     <li key={price._id}
@@ -54,7 +57,7 @@ export default async function ComeAssociarsiPage() {
 
                         {/* Rinnovo */}
                         <div className="rounded-3xl bg-white p-8 shadow-lg border border-secondary/20 bg-secondary/5">
-                            <h4 className="text-2xl font-bold text-secondary mb-4">Semplice Rinnovo</h4>
+                            <h2 className="text-2xl font-bold text-secondary mb-4">Semplice Rinnovo</h2>
                             <p className="text-neutral-600 mb-6">L’adesione può essere fatta mediante bonifico
                                 bancario:</p>
                             <div
@@ -75,23 +78,24 @@ export default async function ComeAssociarsiPage() {
 
                     {/* Prima Iscrizione */}
                     <div className="rounded-3xl bg-white p-8 shadow-lg border border-primary/10">
-                        <h4 className="text-2xl font-bold text-primary mb-6">Prima Iscrizione</h4>
+                        <h2 className="text-2xl font-bold text-primary mb-6">Prima Iscrizione</h2>
                         <ol className="space-y-6">
                             <li className="flex gap-4">
-                                <span
+                                <span aria-hidden="true"
                                     className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">1</span>
                                 <div>
                                     <p className="font-bold text-primary">Scarica il modulo</p>
                                     <p className="text-neutral-600 text-sm mb-2">Scarica il modulo per la richiesta di
                                         adesione:</p>
                                     <Link href="/adesione.pdf" download="richiesta_adesione_mazzolari.pdf"
+                                          aria-label="Scarica il modulo di adesione in formato PDF"
                                           className="inline-flex items-center text-primary underline font-bold decoration-2 underline-offset-4">
                                         Modulo Adesione (PDF)
                                     </Link>
                                 </div>
                             </li>
                             <li className="flex gap-4">
-                                <span
+                                <span aria-hidden="true"
                                     className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">2</span>
                                 <div>
                                     <p className="font-bold text-primary">Compila e firma</p>
@@ -100,7 +104,7 @@ export default async function ComeAssociarsiPage() {
                                 </div>
                             </li>
                             <li className="flex gap-4">
-                                <span
+                                <span aria-hidden="true"
                                     className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">3</span>
                                 <div>
                                     <p className="font-bold text-primary">Invia il modulo</p>

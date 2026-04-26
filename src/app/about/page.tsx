@@ -2,6 +2,8 @@ import type {Metadata} from "next";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import {aboutPageJsonLd, breadcrumbsJsonLd} from "@/utils/jsonld";
 
 export const metadata: Metadata = {
     title: "Chi siamo — Storia e missione del Circolo",
@@ -14,6 +16,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
     return (
         <>
+            <JsonLd data={aboutPageJsonLd()}/>
+            <JsonLd data={breadcrumbsJsonLd([{name: "Chi siamo", path: "/about"}])}/>
             <section className="bg-gradient-to-b from-blue-50 to-white py-14 md:py-20 border-b border-primary/10">
                 <Container>
                     <SectionTitle
@@ -98,7 +102,7 @@ export default function AboutPage() {
             <section className="py-14">
                 <Container>
                     <div className="rounded-3xl bg-primary p-8 text-white shadow-lg">
-                        <div className="text-xl font-bold">Vuoi unirti o darci una mano?</div>
+                        <h2 className="text-xl font-bold">Vuoi unirti o darci una mano?</h2>
                         <p className="mt-3 text-blue-50 text-lg">
                             Siamo sempre felici di accogliere nuovi volontari e collaborazioni.
                         </p>
