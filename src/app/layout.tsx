@@ -3,8 +3,8 @@ import type {Metadata, Viewport} from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
-import {SpeedInsights} from "@vercel/speed-insights/next";
-import {Analytics} from "@vercel/analytics/next";
+import ConsentAwareAnalytics from "@/components/ConsentAwareAnalytics";
+import JsonLd from "@/components/JsonLd";
 import {
     KEYWORDS,
     ORG_ADDRESS,
@@ -115,16 +115,9 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer/>
         <CookieBanner/>
-        <SpeedInsights/>
-        <Analytics/>
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{__html: JSON.stringify(orgJsonLd)}}
-        />
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{__html: JSON.stringify(websiteJsonLd)}}
-        />
+        <ConsentAwareAnalytics/>
+        <JsonLd data={orgJsonLd}/>
+        <JsonLd data={websiteJsonLd}/>
         </body>
         </html>
     );
