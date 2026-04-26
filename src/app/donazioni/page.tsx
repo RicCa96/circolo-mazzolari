@@ -1,8 +1,17 @@
+import type {Metadata} from "next";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import CopyButton from "@/components/CopyButton";
 import {client} from "@/sanity/client";
 import {BankDetailsType} from "@/model/bank-details.type";
+
+export const metadata: Metadata = {
+    title: "Donazioni e 5x1000 — Sostieni il Circolo",
+    description:
+        "Sostieni il Circolo ANSPI Don Primo Mazzolari con il 5x1000 o una donazione: codice fiscale, IBAN e informazioni per contribuire alle attività educative e sportive a Vezzano sul Crostolo.",
+    alternates: {canonical: "/donazioni"},
+    openGraph: {url: "/donazioni", title: "Donazioni e 5x1000 — Circolo Don Primo Mazzolari"},
+};
 
 const BANK_DETAILS_QUERY = `*[_type == "bankInfo"][0]`;
 

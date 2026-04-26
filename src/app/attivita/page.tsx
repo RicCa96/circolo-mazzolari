@@ -1,7 +1,22 @@
+import type {Metadata} from "next";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import {client} from "@/sanity/client";
 import {ActivityType} from "@/model/activity.type";
+
+export const metadata: Metadata = {
+    title: "Attività — Campeggi a Vaglie e Sagra della Madonna della Neve",
+    description:
+        "Le iniziative del Circolo ANSPI Don Primo Mazzolari: campeggi estivi a Vaglie, Sagra della Madonna della Neve a Vezzano sul Crostolo, sport dilettantistico e progetti per ragazzi e famiglie.",
+    keywords: [
+        "campeggio Vaglie",
+        "Sagra Madonna della Neve Vezzano",
+        "attività estive ragazzi Reggio Emilia",
+        "oratorio Vezzano sul Crostolo",
+    ],
+    alternates: {canonical: "/attivita"},
+    openGraph: {url: "/attivita", title: "Attività del Circolo — Campeggi e Sagra"},
+};
 
 function Card(activity: ActivityType) {
     return (

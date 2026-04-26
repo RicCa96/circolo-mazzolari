@@ -1,7 +1,16 @@
+import type {Metadata} from "next";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import {FaFacebook, FaInstagram} from "react-icons/fa";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+    title: "Contatti — Circolo ANSPI Don Primo Mazzolari",
+    description:
+        "Indirizzo, email e contatti social del Circolo ANSPI Don Primo Mazzolari a Vezzano sul Crostolo (RE). Scrivi per informazioni, iscrizioni o per diventare volontario.",
+    alternates: {canonical: "/contatti"},
+    openGraph: {url: "/contatti", title: "Contatti — Circolo ANSPI Don Primo Mazzolari"},
+};
 
 export default function ContattiPage() {
     return (

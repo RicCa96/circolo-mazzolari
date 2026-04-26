@@ -27,8 +27,8 @@ export default function Footer() {
                     </div>
 
                     <div className="flex flex-col items-center gap-4">
-                        <Image src="/anspi.svg" alt="Logo ANSPI" width={120} height={45} className="mr-2" priority={true}/>
-                        <Image src="/logo.svg" alt="Logo ANSPI" width={120} height={45} className="mr-2" priority={true}/>
+                        <Image src="/anspi.svg" alt="Logo ANSPI — Associazione Nazionale San Paolo Italia" width={120} height={45} className="mr-2"/>
+                        <Image src="/logo.svg" alt="Logo Circolo ANSPI Don Primo Mazzolari" width={120} height={45} className="mr-2"/>
                     </div>
 
                 </div>

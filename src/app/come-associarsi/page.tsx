@@ -1,3 +1,4 @@
+import type {Metadata} from "next";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import Link from "next/link";
@@ -5,6 +6,14 @@ import CopyButton from "@/components/CopyButton";
 import {client} from "@/sanity/client";
 import {SubscriptionCostType} from "@/model/subscription-cost.type";
 import {BankDetailsType} from "@/model/bank-details.type";
+
+export const metadata: Metadata = {
+    title: "Come associarsi — Quote e modulo di adesione",
+    description:
+        "Diventa socio del Circolo ANSPI Don Primo Mazzolari: quote associative dell'anno in corso, modulo di adesione PDF, modalità di iscrizione e rinnovo via bonifico bancario.",
+    alternates: {canonical: "/come-associarsi"},
+    openGraph: {url: "/come-associarsi", title: "Come associarsi al Circolo"},
+};
 
 const CURRENT_YEAR = new Date().getFullYear();
 const SUBSCRIPTION_PRICES_QUERY = `*[_type == "subscriptionCost" && year == ${CURRENT_YEAR}]|order(sort_order asc)`;

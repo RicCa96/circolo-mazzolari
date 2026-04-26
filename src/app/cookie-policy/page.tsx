@@ -1,5 +1,14 @@
+import type {Metadata} from "next";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
+
+export const metadata: Metadata = {
+    title: "Cookie Policy",
+    description:
+        "Informativa sull'utilizzo dei cookie sul sito del Circolo ANSPI Don Primo Mazzolari: cookie tecnici e di terze parti.",
+    alternates: {canonical: "/cookie-policy"},
+    robots: {index: true, follow: false},
+};
 
 export default function CookiePolicyPage() {
     return (

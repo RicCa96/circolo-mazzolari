@@ -1,6 +1,15 @@
+import type {Metadata} from "next";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+    title: "Chi siamo — Storia e missione del Circolo",
+    description:
+        "Il Circolo ANSPI Don Primo Mazzolari di Vezzano sul Crostolo: storia, valori, affiliazione ANSPI e ispirazione a Don Primo Mazzolari, parroco degli ultimi e testimone di pace.",
+    alternates: {canonical: "/about"},
+    openGraph: {url: "/about", title: "Chi siamo — Circolo ANSPI Don Primo Mazzolari"},
+};
 
 export default function AboutPage() {
     return (

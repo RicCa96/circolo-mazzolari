@@ -1,9 +1,18 @@
+import type {Metadata} from "next";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import Link from "next/link";
 import {client} from "@/sanity/client";
 import {BoardMemberType} from "@/model/board-member.type";
 import {TransparencyCommunication} from "@/model/transparency-communication.type";
+
+export const metadata: Metadata = {
+    title: "Trasparenza — Statuto e organi sociali",
+    description:
+        "Documenti di trasparenza del Circolo ANSPI Don Primo Mazzolari ETS: statuto, informativa privacy, consiglio direttivo e comunicazioni obbligatorie ai sensi del D.Lgs. 117/2017.",
+    alternates: {canonical: "/trasparenza"},
+    openGraph: {url: "/trasparenza", title: "Trasparenza — Circolo Don Primo Mazzolari ETS"},
+};
 
 const BOARD_MEMBERS_QUERY = `*[_type == "boardMember"] | order(
   (role == "Presidente") desc,

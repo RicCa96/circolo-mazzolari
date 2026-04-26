@@ -1,6 +1,15 @@
+import type {Metadata} from "next";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy",
+    description:
+        "Informativa sul trattamento dei dati personali ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR) — Circolo ANSPI Don Primo Mazzolari.",
+    alternates: {canonical: "/privacy-policy"},
+    robots: {index: true, follow: false},
+};
 
 export default function PrivacyPolicyPage() {
     return (
